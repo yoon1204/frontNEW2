@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrap{
+            width: 500px;
+            height: 500px;
+            margin:0 auto;
+            border:1px solid black;
+            position: relative;
+        }
+
+        .gallery{
+            width: 500px;
+            height: 500px;
+            border:1px solid black;
+            background-image: url('media/img1.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn{
+            width: 40px;
+            height: 40px;
+            border:1px solid black;
+        }
+
+        .preBtn{
+            top:200px;
+            left:0px;
+            position: absolute;
+        }
+
+        .nextBtn{
+            top:200px;
+            right:0px;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        let imgs=["media/img1.jpg","media/img2.jpg,","media/img3.jpg","media/img4.jpg"];
+        let i=-1;
+        function nextImg(){
+            i++;
+            if(i>=img.length){
+                i=0;
+            }
+            let gallery=document.querySelector(".gallery");
+            gallery.innerHTML="";
+            gallery.style.backgroundImage="url('"+imgs[i]+"')";
+            gallery.style.backgroundPosition="center";
+            gallery.style.backgroundSize="cover";
+        }
+
+        function prevImg(){
+            i--;
+            if(i<0){
+                i=imgs.length-1;
+            }
+            gallery.innerHTML="";
+            gallery.style.backgroundImage="url('"+imgs[i]+"')";
+            gallery.style.backgroundPosition="center";
+            gallery.style.backgroundSize="cover";
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <!--사진-->
+        <div class="gallery"></div>
+        <!--버튼-->
+        <div class="preBtn btn" onclick="prevImg()"><<</div>
+        <div class="nextBtn btn" onclick="nextImg()">>></div>
+    </div>
+</body>
+</html>

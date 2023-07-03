@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ani=["토끼","강아지","고양이","다람쥐","병아리"];
+
+        alert(ani[0]);
+        alert(ani[1]);
+        alert(ani[2]);
+        alert(ani[3]);
+        alert(ani[4]);
+
+        for(let a=0; a<ani.length; a++){
+            alert(ani[a]+""+a);
+        }
+
+        ani.forEach(function(a,b){
+            alert(a+""+b);
+        });
+
+        ani.forEach(func1);
+
+        function func1(c,d){
+            alert(c+""+d);
+        }
+
+
+    </script>
+</body>
+</html>
