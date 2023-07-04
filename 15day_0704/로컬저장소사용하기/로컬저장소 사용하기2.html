@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let search=["꼬부기","파이리","이상해씨","마자용","피카츄"];
+        let result=JSON.stringify(search);
+
+        console.log(search);
+        console.log(result);
+
+        let str='["꼬부기","파이리","이상해씨","마자용","피카츄"]';
+
+        localStorage.setItem("searchs",str);
+
+        let sSearchs=localStorage.getItem("searchs");
+        alert(sSearchs);
+
+        let oSearchs=JSON.parse(sSearchs);
+        console.log(oSearchs);
+    </script>
+</body>
+</html>

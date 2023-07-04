@@ -18,7 +18,7 @@
             width: 500px;
             height: 500px;
             border:1px solid black;
-            background-image: url('media/img1.jpeg');
+            background-image: url('imgs/img1.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -30,39 +30,42 @@
         }
 
         .preBtn{
-            top:200px;
+            position: absolute;           
             left:0px;
-            position: absolute;
+            top:200px;
         }
 
         .nextBtn{
-            top:200px;
+            position: absolute;           
             right:0px;
-            position: absolute;
+            top:200px;           
         }
     </style>
 
     <script>
-        let imgs=["media/img1.jpg","media/img2.jpg,","media/img3.jpg","media/img4.jpg"];
+        let imgs=["media/img1.jpg","media/img2.jpg","media/img3.jpg","media/img4.jpg"];
         let i=-1;
         function nextImg(){
-            i++;
-            if(i>=img.length){
-                i=0;
-            }
             let gallery=document.querySelector(".gallery");
             gallery.innerHTML="";
+            i++;
+            if(i>=imgs.length){
+                i=0;
+            }
+           
             gallery.style.backgroundImage="url('"+imgs[i]+"')";
             gallery.style.backgroundPosition="center";
             gallery.style.backgroundSize="cover";
         }
 
         function prevImg(){
+            let gallery=document.querySelector(".gallery");
+            gallery.innerHTML="";
             i--;
             if(i<0){
                 i=imgs.length-1;
             }
-            gallery.innerHTML="";
+            
             gallery.style.backgroundImage="url('"+imgs[i]+"')";
             gallery.style.backgroundPosition="center";
             gallery.style.backgroundSize="cover";
@@ -73,11 +76,9 @@
 </head>
 <body>
     <div class="wrap">
-        <!--사진-->
-        <div class="gallery"></div>
-        <!--버튼-->
-        <div class="preBtn btn" onclick="prevImg()"><<</div>
-        <div class="nextBtn btn" onclick="nextImg()">>></div>
+        <div class="gallery">시작</div>      
+        <div class="preBtn btn" onclick="prevImg()"></div>
+        <div class="nextBtn btn" onclick="nextImg()"></div>
     </div>
 </body>
 </html>
