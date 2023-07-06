@@ -13,8 +13,9 @@
         }
 
         .footer{
-            width: 1370px;
-            height: 166px; 
+            width:100%;
+            height: 100%;
+             
             display: flex;      
         }
 
@@ -89,7 +90,7 @@
         }
 
         .menu1::after{
-            content: "|";
+            content:"|";
             color: #a4a4a4;
         }
 
@@ -113,10 +114,11 @@
 
         .day{
             margin-left:10px;
+            font-size: 13px;
         }
 
         .seoul{
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             line-height: 1.5;
             color: #666666;
@@ -131,6 +133,40 @@
             font-size: 18px;
         }
 
+        button {
+  height: 2.5em;
+  cursor: pointer;
+}
+
+#popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1;
+}
+
+#popup.hide {
+  display: none;
+}
+
+#popup.has-filter {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#popup .content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+}
+
     </style>
 </head>
 <body>
@@ -144,12 +180,16 @@
         <div class="footer_right">           
              <div>
                 <ul class="menu">
-                    <li class="menu1"><a href="https://www.gong-cha.co.kr/franchise/company/history.php">회사소개</a></li> 
-                    <li class="menu1"><a href="https://www.gong-cha.co.kr/brand/benefit/contact.php">제휴/제안</a></li> 
-                    <li class="menu1"><a href="https://www.gong-cha.co.kr/brand/board/customer.php">고객센터</a></li> 
-                    <li class="menu1"><strong>개인정보처리방침</strong></li> 
+                    <li class="menu1"><a href="https://www.gong-cha.co.kr/franchise/company/history.php">회사소개⠀ </a></li> 
+                    <li class="menu1"><a href="https://www.gong-cha.co.kr/brand/benefit/contact.php">제휴/제안⠀</a></li> 
+                    <li class="menu1"><a href="https://www.gong-cha.co.kr/brand/board/customer.php">고객센터⠀</a></li> 
+                    <li class="menu1"><strong>개인정보처리방침⠀</strong></li> 
                     <li class="menu1">이메일무단수집거부</li> 
-                    <li class="menu1">윤리규범 실천지침</li> 
+                    <button onclick="showPopup(false)"></button>
+                    <button onclick="showPopup(true)"></button>>⠀</li> 
+                    
+                    
+                    <li class="menu1">윤리규범 실천지침⠀</li>
                     <li>HOT-LINE</li> 
                 </ul>            
                 <div class="menu2">                 
@@ -165,9 +205,9 @@
                 </div> 
                 <div class="menu3">                      
                         <div class="seoul">
-                            <span class="seoul1">서울 종로구 종로 47(공평동, 7층)</span>
-                            <span class="seoul1">㈜공차코리아 대표이사 박재홍</span>
-                            <span class="seoul1">사업자등록번호 214-88-84534</span>
+                            <span class="seoul1">서울 종로구 종로 47(공평동, 7층)⠀</span>
+                            <span class="seoul1">㈜공차코리아 대표이사 박재홍⠀</span>
+                            <span class="seoul1">사업자등록번호 214-88-84534⠀</span>
                             <span>통신판매번호: 2020-서울종로-0966</span>
                         </div>   
                 </div>
