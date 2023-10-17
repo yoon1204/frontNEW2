@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            background-color: yellow;           
+        }
+
+        .popup{
+            display: none;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: fixed;
+            left:500px;
+            top:500px;
+        }
+
+    </style>
+
+    <script>
+        function openPopup(){
+            alert("dfdfd");
+            let popup = document.querySelector(".popup");
+            popup.style.display="block";
+        }
+
+     function closePopup(){
+        alert("dfdfd");
+            let popup = document.querySelector(".popup");
+            popup.style.display="none";
+        }
+    </script>
+
+</head>
+
+<body>
+
+        바디
+
+    <button onclick="openPopup()">팝업</button>
+
+    <div class="popup">
+
+        팝업내용
+
+         <button onclick="closePopup()">x</button>
+    </div>
+
+</body>
+
+</html>

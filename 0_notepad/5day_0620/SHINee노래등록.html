@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            height: 200px;
+            width: 500px;
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            margin:0 auto;
+        }
+
+        caption{
+            font-size: x-large;
+            font-weight: bolder;
+        }
+      
+        td{
+            width: 100px;
+            border: 1px solid black; 
+        }
+        
+        input{
+            width: 250px;
+            height: 30px;
+        }
+
+        button{
+            height: 40px;
+            width: 45px;
+        }
+
+      
+
+
+    </style>
+
+   
+</head>
+<body> 
+   <table>
+		<caption>노래 등록</caption>
+       
+            <tr>
+             	<td>노래ID</td>
+             	<td><input type="text" name="so_id"></td>         
+            </tr>
+            
+            <tr>
+             	<td>노래제목</td>
+             	<input type="text" name="so_name">      
+            </tr>
+            
+            <tr>
+             	<td>앨범ID</td>
+             	<input type="text" name="al_id">       
+            </tr>
+
+            <tr>
+                <td>멤버ID</td>
+                <input type="text" name="mb_id">       
+           </tr>
+
+           <tr>
+                <td>작사가ID</td>
+                <input type="text" name="ly_id">        
+           </tr>
+
+           <tr>
+                <td>작곡가ID</td>
+                <input type="text" name="sw_id"><br>      
+           </tr>
+
+            <tr>
+                <td colspan="2">
+                   
+                    <button>등록</button>  
+                </td>
+                      
+            </tr>
+            
+    </table>
+
+       
+</body>
+</html>

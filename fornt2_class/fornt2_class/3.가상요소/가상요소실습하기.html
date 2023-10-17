@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 요소 연습</title>
+    <style>
+        ul li{
+            margin: 15px;
+        }
+        .new::after{
+            content: "매진!!";
+            background-color: red;
+            color: aliceblue;
+            font-size: 15px;
+            padding: 2px 4px;
+            margin: 0 10px;
+        }
+
+        .popu::before{
+            content: "주문없음 !!";
+            background-color: green;
+            color:wheat;
+            font-size: 12px;
+            padding: 5px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div>
+        <h1>제품 목록</h1>
+        <ul>
+            <li class="popu">온유</li>
+            <li class="new">종현</li>
+            <li>key</li>
+            <li >민호</li>
+            <li>태민</li>
+        </ul>
+    </div>
+</body>
+</html>
