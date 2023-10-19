@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+ 
+    .wrap {
+      width: 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .line {
+      position: absolute;
+      top:0px;
+      right: 0;  
+      border:1px solid black; 
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background-color: black;
+      display: none; 
+      
+    }
+
+    .wrap:hover .line {
+      display: block;
+   
+    }
+  </style>
+</head>
+
+<body>
+ 
+
+  <p>밑줄 요소를 직접 추가하기 </p>
+   <div class="wrap">ddd
+    <div class="line"></div>
+  </div>
+
+</body>
+
+</html>

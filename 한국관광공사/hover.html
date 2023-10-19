@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       
+        .wrap, .wrap2, .wrap3, .wrap4, .wrap5, .wrap6, .wrap7{
+            width: 40px;
+            text-align: center;
+            position: relative;
+            display: flex;
+        }
+
+        .home, .theme, .area, .poke, .promotion, .information, .map{
+            position: absolute;
+            top: 0px;
+            right: 0;
+            border: 1px solid black;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: black;
+            display:none;
+        }
+
+        .wrap:hover .home, .wrap2:hover .theme, .wrap3:hover .area, .wrap4:hover .poke, .wrap5:hover .promotion, .wrap6:hover .information, .wrap7:hover .map{
+            display: block;
+        }
+
+        .wrap a, .wrap2 a, .wrap3 a, .wrap4 a, .wrap5 a, .wrap6 a, .wrap7 a{
+            text-decoration: none;
+            color: black;
+        }
+        
+    </style>
+    <div class="menu">
+        <div class="wrap"><a href="https://korean.visitkorea.or.kr/main/main.do">홈</a><div class="home"></div></div>
+        <div class="wrap2"><a href="https://korean.visitkorea.or.kr/main/theme.do">테마</a><div class="theme"></div></div>
+        <div class="wrap3"><a href="https://korean.visitkorea.or.kr/main/area.do">지역</a><div class="area"></div></div>
+        <div class="wrap4">테마콕콕<div class="poke"></div></div>
+        <div class="wrap5"><a href="https://korean.visitkorea.or.kr/tgpr/tgpr_main.do">여행상품 홍보관<div class="promotion"></div></div>
+        <div class="wrap6"><div class="information">여행정보</div></div>
+        <div class="wrap7"><a href="https://korean.visitkorea.or.kr/mylocation/mylocation.do">여행지도<div class="map"></div></div>
+    </div>
+    <div class="search-box"><input type="text" class="search" placeholder="어디로, 어떤 여행을 떠날 예정인가요?"></div>
+    <div class="mypage"></div>
+    </body>
+</html>

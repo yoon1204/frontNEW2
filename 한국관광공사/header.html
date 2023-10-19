@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;     
+        font-family: "Segoe UI", "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
+        }
+
+       .search_wrap{
+        height: 90px;
+        border: 1px solid black;
+        display: flex;
+       }
+
+       .wrap{   
+        height: 90px;
+        border: 1px solid black;
+        display: flex;
+        text-align: center;
+        position: relative;
+       }
+
+       .logo img{    
+        width: 250px;
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .home{      
+        height: 90px;
+        border: 1px solid black;
+       
+       }
+
+       .wrap:hover .home{
+        display: block;
+       }
+
+       .theme{
+      
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .area{
+      
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .poke{
+    
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .promotion{
+    
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .information{
+      
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .map{
+   
+        height: 90px;
+        border: 1px solid black;
+       }
+
+       .search-box{
+    
+        height: 42px;
+        border: 1px solid black;
+       }
+       .mypage{
+       
+        height: 31px;
+        border: 1px solid black;       
+       }
+    </style>
+</body>
+    <div class="search_wrap">
+        <span class="logo"><a href="https://korean.visitkorea.or.kr/main/main.do"></a>
+          <img src="./img/대한민국구석구석.png">
+        </span>
+        <ul class="wrap">
+            <li class="home"><a href="https://korean.visitkorea.or.kr/main/main.do">홈</a></li>
+            <li class="theme"><a href="https://korean.visitkorea.or.kr/main/theme.do">테마</a></li>
+            <li class="area"><a href="https://korean.visitkorea.or.kr/main/area.do">지역</a></li>
+            <li class="poke">여행콕콕
+                <ul class="ai"><a href="/main/cr_main.do?type=ai">AI콕콕</a></ul>   
+                <ul class="hot"><a href="/main/cr_main.do?type=place">핫플콕콕</a></ul>          
+                <ul class="plan"><a href="/main/cr_main.do?type=abc">AI콕콕 플래너</a></ul>
+            </li>
+            <li class="promotion"><a href="https://korean.visitkorea.or.kr/tgpr/tgpr_main.do">여행상품 홍보관</a></li>
+            <li class="information">여행정보</li>
+            <li class="map"><a href="https://korean.visitkorea.or.kr/mylocation/mylocation.do">여행지도</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" class="search" placeholder="어디로, 어떤 여행을 떠날 예정인가요?">           
+        </div>
+        <div class="mypage"></div>
+    </div>
+</html>
