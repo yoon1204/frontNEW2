@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        section{
+            margin: 0 auto;
+            
+            width: 1000px;
+        }
+        
+        /* 위에 있는 박스 */
+        .contents{
+            width: 1000px;
+            position: relative;
+             
+            display: flex;       
+        }
+
+        .contentsMyPage {
+            display: flex;
+            align-items: center; 
+        }
+
+        /* 밑에 있는 박스 */
+        .wrap {
+            padding:50px 0 100px;
+            background: #f3f5f7;
+            width: 1000px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        /* 마이페이지 아이콘 */
+        .contentsMyPage h2 .myIcon {
+            overflow: hidden;
+            width: 26px;
+            height: 26px;
+            background: url(./img/my.png) 0 0 no-repeat;
+            text-indent: -9999px;
+            
+            position: relative;
+            margin-bottom:40px;
+        }
+
+        
+        .contentsMyPage h2 span {
+            display: inline-block; 
+            text-align: left; 
+        }
+
+        
+        /* 마이페이지 글자 */
+        .contentsMyPage h2 {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            color: #333;
+            font-size: 36px;
+            letter-spacing: -1px;
+            text-align: left;
+       
+          
+        }
+
+        /* 왼쪽 전체 */
+        .profileBox {
+            position: relative;
+            width: 340px;
+            height: 450px;
+            background-color: #022c6c;
+            border-radius: 5px;         
+            margin-right: 20px; 
+            color: white;       
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            overflow: visible; 
+        }
+
+        
+
+        /* 흰 점 세 개짜리 버튼 클릭하면 개인정보 변경, 로그아웃, 회원탈퇴 보임 */
+        .profileBox ul{
+            position: absolute;
+            background-color: white; 
+            padding: 10px;
+            top: 113px;
+            right: 31px;
+            transform: translateY(-50%);
+            display:none;
+            list-style-type: none;
+            z-index: 1;
+        }
+
+        /* 프로필박스 팝업 밑줄 */
+        .profileBox ul li a {
+            text-decoration: none;
+        }
+
+        /* 프로필박스 팝업 글자 */
+        .subMenu > ul > li a{
+            padding: 0 20px 0 28px;
+            color: #333;
+            font-weight: 700;
+            height: 35px;
+            font-size: 13px;
+            letter-spacing: -0.5px;
+            line-height: 35px;
+            background: url(./img/마이페이지아이콘들.png) 0 -10px / 20px auto no-repeat;
+        }
+
+        .subMenu > ul > li.btn_logout > a{
+            background-position: 0 -45px;
+        }
+
+        .subMenu > ul > li.btn_out > a{
+            background-position: 0 -116px;
+        }
+
+
+        .setting {
+            position: relative;
+            top: 80px; 
+        }
+
+        .setting img {
+            vertical-align: middle; /* 이미지를 텍스트 중앙에 정렬 */
+        }
+
+        /* 프로필 이미지 설정 */
+        .setting a {
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: -0.6px;
+            line-height: 20px;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;;
+            align-items: center; 
+            padding: 10px;
+        }
+
+        .view {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            writing-mode: vertical-rl; /* 세로로 표시되도록 설정*/
+            position: absolute;
+            top: 30px; 
+            right: 20px;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 80px;
+            height: 80px; 
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        /* 왼쪽 동그란 프로필 이미지 */
+        .profileImg {
+            width: 80px;
+            height: 80px;
+            background: url(./img/프로필아이콘.png) 0 0 no-repeat;
+            border-radius: 50%;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 45px;
+            position: relative;
+        }
+
+        .id {
+            position: absolute;
+            bottom: -6px; 
+            right: 3px;
+        }
+        
+        form{
+            margin:0 auto;
+            text-align: center;
+            align-items: center;
+        }
+        
+        /* 반가워요! */
+        form p {
+            padding: 5px 0;
+            font-size: 20px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 22px;
+            letter-spacing: -0.8px;
+            margin-bottom: 5px;
+        }
+
+        /* ㅇㅇㅇ 님 (닉네임) */
+        .nickname {
+            display: block;
+            font-weight: 800;
+            font-size: 30px;
+            color: #fff;
+            letter-spacing: -1.5px;
+            line-height: 33px;
+            margin-bottom: 5px; 
+        }
+
+
+        .myPage {
+            width: 600px;
+            height: 500px;
+           
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px; /* 수정: 왼쪽 마진 추가 */
+            padding: 20px; /* 수정: 내부 여백 추가 */
+            box-sizing: border-box; /* 수정: 내부 여백을 포함한 크기 지정 */
+        }
+
+        .active h3{
+            padding:20px;
+        }
+
+        .activeBox {
+            width: 570px;
+            height: 340px;
+            padding: 40px 0 0;
+            background: #fff;
+            box-shadow: 0px 0px 24px 0px rgba(170, 173, 176, 0.2);
+            border-radius: 10px;     
+        }
+
+        .activeBox h3 {         
+            width: 570px;
+            padding: 0 0 20px;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 24px;
+            color: #000;
+            text-align: center; /* 수정: 가운데 정렬 */
+        }
+
+        .activeBox ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .activeBox ul li {
+            width: 200px; 
+            height: 170px;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px 0; /* 내부 여백 추가 */
+            list-style: none; 
+            position: relative;
+            margin-top:20px;
+            margin-right: 70px;
+            left:70px;
+           
+        }
+
+        .activeBox ul li .icon1 {
+            content: '';
+            display: inline-block;
+            height: 65px;
+            width: 65px;     
+            background: url(./img/activeBox아이콘들.png) 0 0 / 100% auto no-repeat;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .activeBox ul li .icon2 {
+            content: '';
+            display: inline-block;
+            height: 65px;
+            width: 65px;        
+            background: url(./img/activeBox아이콘들.png) 0 -65px / 100% auto no-repeat;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .activeBox ul li .icon3 {
+            content: '';
+            display: inline-block;
+            height: 65px;
+            width: 65px;      
+            background: url(./img/activeBox아이콘들.png) 0 -195px / 100% auto no-repeat;   
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .activeBox ul li .icon4 {
+            content: '';
+            display: inline-block;
+            height: 65px;
+            width: 65px;     
+            background: url(./img/activeBox아이콘들.png) 0 -325px / 100% auto no-repeat;  
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        
+
+        .activeBox ul li .icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background-size: 100% auto;
+        }
+
+        .activeBox ul li span {
+            display: block;
+            font-size: 18px;
+            letter-spacing: -0.8px;
+            line-height: 22px;
+            color: #333;
+            margin-top: 10px;
+        }
+        
+        #fav{
+            font: 13px/1.4 NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+            -webkit-text-size-adjust: none;
+            list-style: none;
+            text-align: center;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+            margin: 0;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            color: #fff;
+            background: #4765cf;
+            box-sizing: border-box;
+            left: 45px;
+            top: -5px;
+            height: 20px;
+            min-width: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+        }
+
+        #comment{
+            font: 13px/1.4 NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+            -webkit-text-size-adjust: none;
+            list-style: none;
+            text-align: center;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+            margin: 0;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            color: #fff;
+            background: #4765cf;
+            box-sizing: border-box;
+            left: 45px;
+            top: -5px;
+            height: 20px;
+            min-width: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+        }
+
+        #cos{
+            font: 13px/1.4 NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+            -webkit-text-size-adjust: none;
+            list-style: none;
+            text-align: center;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+            margin: 0;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            color: #fff;
+            background: #4765cf;
+            box-sizing: border-box;
+            left: 45px;
+            top: -5px;
+            height: 20px;
+            min-width: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+        }
+
+        #qna{
+            font: 13px/1.4 NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+            -webkit-text-size-adjust: none;
+            list-style: none;
+            text-align: center;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+            margin: 0;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50px;
+            color: #fff;
+            background: #4765cf;
+            box-sizing: border-box;
+            left: 45px;
+            top: -5px;
+            height: 20px;
+            min-width: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+        }
+
+    </style>
+     <script>
+        function toggleOptions() {
+            let ulElement = document.querySelector('.profileBox ul');
+            if (ulElement.style.display === 'none' || ulElement.style.display === '') {
+                ulElement.style.display = 'block';
+            } else {
+                ulElement.style.display = 'none';
+            }
+        }
+        function showOptions() {
+            let ulElement = document.querySelector('.profileBox ul');
+            ulElement.classList.add('show');
+        }
+
+        function hideOptions() {
+            let ulElement = document.querySelector('.profileBox ul');
+            ulElement.classList.remove('show');
+        }
+
+    </script>
+</head>
+
+<body>
+    <section>
+    <div class="contents" class="subscribe">
+        <div class="contentsMyPage">
+            <h2><span class="myIcon">My</span>마이페이지</h2>
+        </div>
+    </div>
+    <div class="wrap">    
+        <div class="profileBox">
+            <div class="title">
+                <button type="button" title="open" class="view" onclick="toggleOptions()">&#8226;&#8226;&#8226;</button>
+                <div class="subMenu" tabindex="0">   
+                    <ul class="btn">
+                        <li class="btn_info01"><a href="#">개인정보 변경</a></li>
+                        <li class="btn_alarm" style="display: none;"><a href="/common/mo_setup.do">알림 설정</a></li>
+                        <li class="btn_logout"><a href="javascript:showLogin(1);">로그아웃</a></li>
+                        <li class="btn_out"><a href="javascript:memberLeave();">회원탈퇴</a></li>
+                    </ul>   
+                </div>
+            </div>
+            <form name="form" id="form">
+                <div class="profileImg">
+                    <div class="profile" id="photo"></div>
+                    <span class="id">
+                        <img src="./img/네이버아이콘.png" alt="네이버">
+                    </span>
+                </div>
+                <p>반가워요!</p>
+                <strong class="nickname">샤*니 님</strong>
+                <div class="setting">
+                    <input type="file" id="upload" name="upload" accept="image/*" onchange="fileChange(this)"
+                        style="display: none;">
+                    <a href="javascript:;" id="update">프로필 이미지 설정</a>
+                    <img src="./img/프로필이미지설정.png" alt="프로필이미지">
+                    <label for="upload" class="btnUpload"></label>
+                </div>
+            </form>
+        </div>
+        <div class="myPage">
+            <div class="active">
+                <h3>나의활동</h3>
+                <div class="activeBoxContainer">
+                    <div class="activeBox">
+                        <ul>
+                            <li>
+                                <a href="" class="icon1"><em id="fav">0</em></a>
+                                <span>좋아요</span>
+                            </li>
+                            <li>
+                                <a href="" class="icon2"><em id="comment">1</em></a>
+                                <span>여행톡</span>
+                            </li>
+                            <li>
+                                <a href="" class="icon3"><em id="cos">0</em></a>
+                                <span>코스</span>
+                            </li>
+                            <li>
+                                <a href="" class="icon4"><em id="qna">0</em></a>
+                                <span>Q&A</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

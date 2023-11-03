@@ -8,46 +8,52 @@
 <body>
     <style>
         *{
-        margin: 0 auto;
-        padding: 0; 
+        margin: 0;
+        padding: 0px; 
         list-style: none;
+        box-sizing: border-box;
+        font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
         }
+
        
+        
        .search_wrap{
-        width: 60%;
         height: 90px;
         border: 1px solid black;
         display: flex;
        }
 
-       .logo{
-            width: 30%;
-            height: 90px;
-            border: 1px solid black;
-        }
-        
-
        .logo img{
         width: 207px;
-        height: 90px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
        }
 
        .menu{   
+        font-size:20px;
+        width: auto;
         height: 90px;
         border: 1px solid black;
         display: flex;
         text-align: center;
         position: relative;
+        font-weight: 700;
+        color: #000;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
        }
 
        .wrap, .wrap2, .wrap3, .wrap4, .wrap5, .wrap6, .wrap7{
-            width: 120px;
+            width: 0px;
             text-align: center;
             position: relative;
             display: flex;
         }
 
-        /*hover 기능 사용하면 오른쪽 위에 점 생김*/
         .home, .theme, .area, .poke, .promotion, .information, .map{
             position: absolute;
             top: 0px;
@@ -63,6 +69,7 @@
         .wrap:hover .home, .wrap2:hover .theme, .wrap3:hover .area, .wrap4:hover .poke, .wrap5:hover .promotion, .wrap6:hover .information, .wrap7:hover .map{
             display: block;
         }
+       
 
         .wrap a, .wrap2 a, .wrap3 a, .wrap4 a, .wrap5 a, .wrap6 a, .wrap7 a{
             text-decoration: none;
@@ -70,13 +77,13 @@
         }
 
        .search-box{
-        width: 30%;
+        width: 262px;
         height: 42px;
         border: 1px solid black;
        }
 
        .mypage{
-        width: 10%;
+        width: 31px;
         height: 31px;
         border: 1px solid black;       
        }
@@ -90,7 +97,7 @@
             <div class="wrap"><a href="https://korean.visitkorea.or.kr/main/main.do">홈</a><div class="home"></div></div>
             <div class="wrap2"><a href="https://korean.visitkorea.or.kr/main/theme.do">테마</a><div class="theme"></div></div>
             <div class="wrap3"><a href="https://korean.visitkorea.or.kr/main/area.do">지역</a><div class="area"></div></div>
-            <div class="wrap4">테마콕콕<div class="poke"></div></div>
+            <div class="wrap4">여행콕콕<div class="poke"></div></div>
             <div class="wrap5"><a href="https://korean.visitkorea.or.kr/tgpr/tgpr_main.do">여행상품 홍보관<div class="promotion"></div></div>
             <div class="wrap6"><div class="information">여행정보</div></div>
             <div class="wrap7"><a href="https://korean.visitkorea.or.kr/mylocation/mylocation.do">여행지도<div class="map"></div></div>

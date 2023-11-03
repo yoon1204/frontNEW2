@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+        margin: 0;
+        padding: 0px; 
+        list-style: none;
+        box-sizing: border-box;
+        font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+        }
+
+       
+        
+       .search_wrap{
+        height: 90px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center; 
+       }
+
+       .logo img{
+        width: 207px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;       
+       }
+
+       .menu{   
+        font-size:20px;
+        width: auto;
+        height: 90px;
+        border: 1px solid black;
+        display: flex;
+        text-align: center;
+        position: relative;
+        font-weight: 700;
+        color: #000;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+       }
+
+       .menu .wrap, .menu .wrap1, .menu .wrap2, .menu .wrap3, .menu .wrap4, .menu .wrap5, .menu .wrap6 {
+            position: relative; 
+            width: auto; 
+            height: 2px;           
+            text-align: center;
+            display: flex;
+            top: 0px;
+            right: 0;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .wrap1:hover, .wrap2:hover, .wrap3:hover, .wrap4:hover, .wrap5:hover, .wrap6:hover{
+            display: block;
+        }
+       
+
+        .wrap1 a, .wrap2 a, .wrap4 a, .wrap6 a{
+            text-decoration: none;
+            color: black;
+        }
+
+       .search-box{
+        width: 262px;
+        height: 42px;
+        border: 1px solid black;
+       }
+
+       .mypage{
+        width: 31px;
+        height: 31px;
+        border: 1px solid black;       
+       }
+    </style>
+</body>
+    <div class="search_wrap">
+        <div class="logo"><a href="https://korean.visitkorea.or.kr/main/main.do"><img src="./img/대한민국구석구석.png"></a></div>  
+        <div class="menu">
+            <div class="wrap"><a href="https://korean.visitkorea.or.kr/main/main.do">홈</a></div>
+            <div class="wrap1"><a href="https://korean.visitkorea.or.kr/main/theme.do">테마</a></div>
+            <div class="wrap2"><a href="https://korean.visitkorea.or.kr/main/area.do">지역</a></div>
+            <div class="wrap3">여행콕콕</div>
+            <div class="wrap4"><a href="https://korean.visitkorea.or.kr/tgpr/tgpr_main.do">여행상품 홍보관</a></div>
+            <div class="wrap5">여행정보</div>
+            <div class="wrap6"><a href="https://korean.visitkorea.or.kr/mylocation/mylocation.do">여행지도</a></div>
+        </div>
+        <div class="search-box"><input type="text" class="search" placeholder="어디로, 어떤 여행을 떠날 예정인가요?"></div>
+        <div class="mypage"><a href="javascript:goMypage();" style="background-image : url(https://ssl.pstatic.net/static/pwe/address/img_profile.png);"></a></div>
+    </div>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Tahoma,Sans-serif;
+    color:#333;
+    }
+
+    .search_wrap{
+    height: 90px;
+    border: 1px solid black;
+    display: flex;
+    }
+
+
+    .logo{
+    width: 980px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+    }
+
+    .logo img{
+    width: 207px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;            
+    }
+
+    .menu{
+    float: left;
+    margin-right: 10px;
+    border: 1px solid black;
+    }
+
+    .menu img{
+    width: 30px;
+    margin-right: 5px;
+    display: block;
+    }
+
+    .wrap{
+    float: left;
+    }
+
+    .menu-item, .menu-item1{
+    float: left;
+    padding: 8px;
+    font-weight: bold;
+    margin-right: 10px;
+    }
+
+    .fix::after{
+    display: block;
+    clear: both;
+    }
+
+    </style>   
+        <div class="search_wrap">
+            <div class="logo">
+                <div class="logo-left fix">
+                    <div class="menu">
+                        <img src="./img/대한민국구석구석.png" alt="">
+                    </div>
+                    <div class="wrap">
+                        <div class="menu-item"><a href="https://korean.visitkorea.or.kr/main/main.do">홈</a><div class="home"></div></div>
+                        <div class="menu-item1"><a href="https://korean.visitkorea.or.kr/main/theme.do">테마</a><div class="theme"></div></div>
+                        <div class="menu-item1"><a href="https://korean.visitkorea.or.kr/main/area.do">지역</a><div class="area"></div></div>
+                        <div class="menu-item1">여행콕콕<div class="poke"></div></div>
+                        <div class="menu-item1"><a href="https://korean.visitkorea.or.kr/tgpr/tgpr_main.do">여행상품 홍보관<div class="promotion"></div></div>
+                        <div class="menu-item1"><div class="information">여행정보</div></div>
+                        <div class="menu-item1"><a href="https://korean.visitkorea.or.kr/mylocation/mylocation.do">여행지도<div class="map"></div></div>
+                    </div>
+                    <div class="search-box"><input type="text" class="search" placeholder="어디로, 어떤 여행을 떠날 예정인가요?"></div>
+                    <div class="mypage"><a href="javascript:goMypage();" style="background-image : url(https://ssl.pstatic.net/static/pwe/address/img_profile.png);"></a></div>
+                </div>
+            </div>  
+        </div>
+</body>
+</html>

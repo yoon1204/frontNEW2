@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 핫플콕콕, AI콕콕 플래너, AI콕콕 배너 전체*/
+        .kockoc_box {
+            width: 100%;        
+            margin: 40px auto 0;   
+        }
+
+        /* 핫플콕콕, AI콕콕 플래너, AI콕콕 개별 박스 */
+        .box {       
+            position: relative;
+        }
+
+        .kockoc_box .box {
+            width: 300px;
+            height: 174px;
+            border-radius: 5px;
+            color: #fff;
+            padding: 30px;     
+            box-sizing: border-box;    
+            font: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;   
+        }
+
+        .kockoc_box strong {
+            display: block;
+            margin: 0 0 8px;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.8px;
+            line-height: 23px;
+             
+        }
+
+        .kockoc_box p {
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: -0.5px;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+        }
+
+        .kockoc_box a {
+            display: inline-block;
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 17px;
+            color: #fff;
+            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
+        }
+
+        /* 박스 가로 정렬 */
+        .kockoc_box .blue_box {
+            display: flex; 
+        }
+
+        .kockoc_box .box.content1 {            
+            background: #4094f2;
+        }
+
+        .kockoc_box .box.content2 {
+            background: #567ff2;
+        }
+
+        .kockoc_box .box.content3 {
+            background: #5558e3;
+        }
+
+        /* 바로가기 */
+        .kockoc_box a {           
+            font-weight: 300;
+            font-size: 15px;          
+            color: #fff;
+        }
+
+        .kockoc_box a:after {
+            display: block;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.6);
+            margin: 2px 0 0;
+        }
+    </style>
+</head>
+
+    <div class="kockoc_box">  
+			<ul class="blue_box">
+				<li class="box content1 box-active" style="margin-right: 20px;">
+					<strong>핫플콕콕</strong>
+					<p>요즘 인기있는 여행지는 다 모였네!<br>
+						지역별 핫플을 알려드려요!
+					</p>
+					<a href="https://korean.visitkorea.or.kr/main/cr_main.do?type=place">바로가기</a>
+				</li>
+				<li class="box content2 box-next" style="margin-right: 20px;">
+					<strong>AI콕콕 플래너</strong>
+					<p>어떤 지역을 여행하고 싶으신가요?<br>
+						맞춤형 여행 코스 대기 중!
+					</p>
+					<a href="https://korean.visitkorea.or.kr/main/cr_main.do?type=abc">바로가기</a>
+				</li>
+				<li class="box content3" style="margin-right: 20px;">
+					<strong>AI콕콕</strong>
+					<p>나의 여행 성향을 분석한 <br>
+						나만의 맞춤형 여행지 추천!
+					</p>
+					<a href="/https://korean.visitkorea.or.kr/main/cr_main.do?type=ai">바로가기</a>
+				</li>
+			</ul>
+    </div>           
+</body>
+</html>
