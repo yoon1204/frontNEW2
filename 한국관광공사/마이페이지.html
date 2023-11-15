@@ -12,31 +12,33 @@
             padding:0;
         }
 
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color:#f3f5f7;
+        }    
+
         section{
-            margin: 0 auto;
-            
+            margin: 0 auto;        
             width: 1000px;
         }
         
         /* 위에 있는 박스 */
         .contents{
             width: 1000px;
-            position: relative;
-             
-            display: flex;       
+            margin: 0 auto;           
         }
 
         .contentsMyPage {
+            width: 100%;
             display: flex;
             align-items: center; 
+            
         }
 
         /* 밑에 있는 박스 */
         .wrap {
-            padding:50px 0 100px;
-            background: #f3f5f7;
-            width: 1000px;
-            height: 500px;
+            padding:50px 0 100px;       
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,7 +71,7 @@
             font-weight: 800;
             color: #333;
             font-size: 36px;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             text-align: left;
        
           
@@ -474,70 +476,70 @@
 
 <body>
     <section>
-    <div class="contents" class="subscribe">
-        <div class="contentsMyPage">
-            <h2><span class="myIcon">My</span>마이페이지</h2>
-        </div>
-    </div>
-    <div class="wrap">    
-        <div class="profileBox">
-            <div class="title">
-                <button type="button" title="open" class="view" onclick="toggleOptions()">&#8226;&#8226;&#8226;</button>
-                <div class="subMenu" tabindex="0">   
-                    <ul class="btn">
-                        <li class="btn_info01"><a href="#">개인정보 변경</a></li>
-                        <li class="btn_alarm" style="display: none;"><a href="/common/mo_setup.do">알림 설정</a></li>
-                        <li class="btn_logout"><a href="javascript:showLogin(1);">로그아웃</a></li>
-                        <li class="btn_out"><a href="javascript:memberLeave();">회원탈퇴</a></li>
-                    </ul>   
-                </div>
+        <div class="contents" class="subscribe">
+            <div class="contentsMyPage">
+                <h2><span class="myIcon">My</span>마이페이지</h2>
             </div>
-            <form name="form" id="form">
-                <div class="profileImg">
-                    <div class="profile" id="photo"></div>
-                    <span class="id">
-                        <img src="./img/네이버아이콘.png" alt="네이버">
-                    </span>
-                </div>
-                <p>반가워요!</p>
-                <strong class="nickname">샤*니 님</strong>
-                <div class="setting">
-                    <input type="file" id="upload" name="upload" accept="image/*" onchange="fileChange(this)"
-                        style="display: none;">
-                    <a href="javascript:;" id="update">프로필 이미지 설정</a>
-                    <img src="./img/프로필이미지설정.png" alt="프로필이미지">
-                    <label for="upload" class="btnUpload"></label>
-                </div>
-            </form>
         </div>
-        <div class="myPage">
-            <div class="active">
-                <h3>나의활동</h3>
-                <div class="activeBoxContainer">
-                    <div class="activeBox">
-                        <ul>
-                            <li>
-                                <a href="" class="icon1"><em id="fav">0</em></a>
-                                <span>좋아요</span>
-                            </li>
-                            <li>
-                                <a href="" class="icon2"><em id="comment">1</em></a>
-                                <span>여행톡</span>
-                            </li>
-                            <li>
-                                <a href="" class="icon3"><em id="cos">0</em></a>
-                                <span>코스</span>
-                            </li>
-                            <li>
-                                <a href="" class="icon4"><em id="qna">0</em></a>
-                                <span>Q&A</span>
-                            </li>
-                        </ul>
+        <div class="wrap">    
+            <div class="profileBox">
+                <div class="title">
+                    <button type="button" title="open" class="view" onclick="toggleOptions()">&#8226;&#8226;&#8226;</button>
+                    <div class="subMenu" tabindex="0">   
+                        <ul class="btn">
+                            <li class="btn_info01"><a href="#">개인정보 변경</a></li>
+                            <li class="btn_alarm" style="display: none;"><a href="/common/mo_setup.do">알림 설정</a></li>
+                            <li class="btn_logout"><a href="javascript:showLogin(1);">로그아웃</a></li>
+                            <li class="btn_out"><a href="javascript:memberLeave();">회원탈퇴</a></li>
+                        </ul>   
+                    </div>
+                </div>
+                <form name="form" id="form">
+                    <div class="profileImg">
+                        <div class="profile" id="photo"></div>
+                        <span class="id">
+                            <img src="./img/네이버아이콘.png" alt="네이버">
+                        </span>
+                    </div>
+                    <p>반가워요!</p>
+                    <strong class="nickname">샤*니 님</strong>
+                    <div class="setting">
+                        <input type="file" id="upload" name="upload" accept="image/*" onchange="fileChange(this)"
+                            style="display: none;">
+                        <a href="javascript:;" id="update">프로필 이미지 설정</a>
+                        <img src="./img/프로필이미지설정.png" alt="프로필이미지">
+                        <label for="upload" class="btnUpload"></label>
+                    </div>
+                </form>
+            </div>
+            <div class="myPage">
+                <div class="active">
+                    <h3>나의활동</h3>
+                    <div class="activeBoxContainer">
+                        <div class="activeBox">
+                            <ul>
+                                <li>
+                                    <a href="" class="icon1"><em id="fav">0</em></a>
+                                    <span>좋아요</span>
+                                </li>
+                                <li>
+                                    <a href="" class="icon2"><em id="comment">1</em></a>
+                                    <span>여행톡</span>
+                                </li>
+                                <li>
+                                    <a href="" class="icon3"><em id="cos">0</em></a>
+                                    <span>코스</span>
+                                </li>
+                                <li>
+                                    <a href="" class="icon4"><em id="qna">0</em></a>
+                                    <span>Q&A</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </body>
 </html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+
+    section{
+        margin: 0 auto;    
+        width: 1000px;
+        height: 400px;
+        box-sizing: border-box;
+        color: #666;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    #wrap {
+        width: 980px;
+        height: 380px;
+        margin: 0 auto;
+        padding: 0px 20px 27px 20px;
+    }
+
+    .title{      
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .title .tag{
+        padding-bottom: 0;
+    }
+
+    .title .tag .name {
+        padding: 5px 0 0 30px;
+    }
+ 
+    /* 마이페이지 아이콘 */
+    .title .tag .name .icon {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 26px;
+        height: 24px;
+        background: url(./img/my.png) 0 0 no-repeat;
+        background-size: 26px auto;
+        text-indent: -9999px;
+    }
+    
+    .title .tag > span{
+        position: relative;
+        display: inline-block;
+        min-height: 28px;
+        font-size: 20px;
+        color: #666 ;
+    }
+
+    .title h2 {
+        overflow: hidden;
+        font-weight: 800;
+        color: #333;
+        font-size: 36px;
+        letter-spacing: -1px;    
+    }
+
+    .tag + h2 {
+        margin-top: -5px;
+    }
+
+    /*지도로 보기*/
+    .title .map {
+        position: absolute;
+        bottom: 5px;
+        right: 340px;
+        color: #fff;
+        background: #13294b;
+        font-size: 14px;
+        padding: 0 15px;
+        height: 30px;
+        line-height: 30px;
+        text-decoration: none;
+    }
+
+    .title > .btn {
+        position: absolute;
+        right: 373px;
+        bottom: 10px;
+    }
+
+    .btn button {
+        background: #b5b5b5;
+        border-radius: 50px;
+        width: 100px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12.5px;
+        line-height: 28px;
+        letter-spacing: -1px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .viewClick {
+        width: 100%;
+        position: relative;       
+        margin-top: 24px;
+    }
+
+    .leftBox {
+        float: left;
+        width: 600px;
+    }
+
+    .smallBox {
+        position: relative;
+        width: 600px;
+        padding: 15px 0 13px;
+        font-weight: 700;
+        border-top: 1px solid #999;
+    }
+
+    /*총 0 건*/
+    .smallBox strong {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .smallBox strong span {
+        padding: 0 2px;
+        color: #0a97cd;
+    }
+
+    .smallBox .fav_btn {
+        position: absolute;
+        top: 15px;
+        right: 0;
+        color: #767676;
+    }
+
+    /* 즐겨찾기 버튼 */
+    .smallBox .fav_btn button {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+
+    .smallBox .fav_btn button.on {
+        color: #000;
+        font-weight: 800;
+    }
+
+    .favList {
+        float: left;
+        width: 600px;
+        position: relative;
+       
+    }
+
+    .favList > li.picture {
+        border-top: 1px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
+        padding-top:15px;
+        padding-bottom: 61px;
+        margin-bottom: 20px;
+        
+    }
+    
+    .favList > li .photo {
+        float: left;
+        width: 140px;
+        height: 94px;
+        position: relative;
+      
+    }
+
+    .favList > li .photo a {
+        display: block;
+    }
+
+    .favList > li .photo .trip {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    /* 여행지 */
+    .favList > li .photo .txt_trip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 48px;
+        height: 28px;
+        background: #13294b;
+        line-height: 2;
+        text-align: center;
+    }
+
+    .favList > li .photo img {
+        width: 140px;
+        height: 94px;
+        vertical-align: middle;
+        border: 0 none;
+    }
+
+    .favList > li .txt_area {
+        padding-left: 160px !important;
+        padding-right: 20px;
+    }
+
+    .favList > li .txt_area .trip_info {
+        margin-top: -5px;
+        padding-bottom: 5px;
+    }
+
+    .favList > li .txt_area .trip_info a {
+        overflow: hidden;
+        display: inline-block;
+        width: 100%;
+        font-weight: bold;
+        font-size: 20px;
+        color: #000;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .trip_info a:hover {
+        text-decoration: underline;
+    }
+
+
+    .favList > li .txt_area p {
+        font-size: 14px;
+    }
+
+    .favList > li .view {
+        overflow: hidden;
+        position: absolute;
+        top: 15px;
+        right: 0;
+        z-index: 90;
+        width: 20px;
+        height: 20px;
+        background: url(./img/마이페이지점세개버튼.png) 0 0 no-repeat;
+        text-indent: -9999px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .subMenu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        z-index: 110;
+        width: 170px;
+        border: 1px solid #767676;
+        padding: 0;
+        background: #fff;
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .subMenu > ul:first-child {
+        background: none;
+    }
+
+    .subMenu > ul {
+        padding: 10px 0;
+        background: url(./img/메뉴팝업흰선.png) 50% 0 no-repeat;
+    }
+
+    .subMenu > ul > li {
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .subMenu > ul > li.share > a {
+        height: 21px;
+        background: url(./img/공유하기버튼.png) no-repeat;
+    }
+
+    .subMenu > ul > li.delete > a {
+        background-position: 0 -400px;
+    }
+
+    .subMenu > ul > li > a {
+        display: block;
+        height: 20px;
+        margin-left: 20px;
+        padding: 0 20px 0 28px;
+        background: url(./img/팝업아이콘들.png) 0 0 no-repeat;
+        letter-spacing: -1.1px;
+    }
+
+    .page {
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .page a.on {
+        border: 1px solid #13294b;
+        background-color: #13294b;
+        color: #fff;
+    }
+
+    .page a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    caption, .blind, .hidden, .ir {
+        overflow: hidden;
+        position: absolute;
+        top: auto;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        text-indent: -9999px;
+    }
+    .rightBox {
+        float: right;
+        width: 300px;
+    }
+
+    .myPage {
+        width: 100%;
+        padding: 10px 20px 30px 0px;
+        background: #f7f7f7;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    .myPage > ul > li {
+        width: 100%;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .myPage > ul > li a {
+        display: block;
+        padding-left: 20px;
+        color: #666;
+    }
+
+    .myPage > ul > li a:hover {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+
+    .myPage ul li.rightList a {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+    a:link, a:visited, a:hover, a:focus, a:active {
+        text-decoration: none;
+    }
+
+    
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    // 더보기 버튼 클릭 시 이벤트 핸들러
+    $('.view').click(function(){
+        // 클릭한 더보기 버튼 다음에 오는 .subMenu를 보이도록 설정
+        $(this).next('.subMenu').toggle();
+    });
+});
+</script>
+
+<body>
+    <section>
+        <div id="wrap">
+            <div class="title"> 
+                <div class="tag">
+                    <span class="name"> 
+                        <a href="">
+                            <span class="icon">My</span>마이페이지
+                        </a>
+                    </span>
+                </div>
+                <h2>즐겨찾기</h2>
+                <a href="" class="map">지도로 보기</a>
+                <span class="btn" style="display: none;">
+                <button type="button" onclick="layerPopup.layerShow('positionPop');">내 위치 OFF</button>
+                </span>
+            </div>
+            <div class="viewClick">
+                <div class="leftBox">
+                    <div class="smallBox">
+                        <strong>
+                            총
+                            <span>1</span>
+                            건
+                        </strong>
+                        <div class="fav_btn">
+                            <button type="button" onclick="typeChange('list');" class="on" title="선택됨">즐겨찾기</button>
+                        </div>
+                    </div>
+                    <ul class="favList">
+                        <li class="picture">
+                            <div class="photo">
+                                <a href="">
+                                    <div class="trip">
+                                        <span class="txt_trip">여행지</span>
+                                    </div>
+                                    <img src="./img/대구달서구이월드.jpg" alt="이월드">
+                                </a>
+                            </div>
+                            <div class="txt_area">
+                                <div class="trip_info">
+                                    <a href="">이월드</a>
+                                    <p>대구 달서구</p>
+                                </div>
+                                <button type="button" title="열기" class="view">더보기</button>
+                                <div class="subMenu" tabindex="0">
+                                    <ul>
+                                        <li class="share" id="">
+                                            <a href="javascript:" onclick="">공유하기</a>
+                                        </li>
+                                        <li class="delete" id="">
+                                            <a href="javascript:">삭제</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="page">
+                        <a class="on" title="선택됨" href="javascript:" id="1">
+                            1
+                            <span class="blind">현재 위치</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="rightBox">
+                    <div class="myPage">
+                        <ul>
+                            <li class="rightList">
+                                <a href="javascript:">즐겨찾기</a>
+                            </li>
+                            <li>
+                                <a href="">코스</a>
+                            </li>
+                            <li>
+                                <a href="">댓글</a>
+                            </li>
+                            <li>
+                                <a href="" id="qna">Q&A (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+</body>
+</html>

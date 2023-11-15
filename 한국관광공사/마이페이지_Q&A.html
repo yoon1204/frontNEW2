@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+
+    div {
+        box-sizing: border-box;  
+       
+    }
+
+    body{       
+        color: #666;
+    }
+
+    section{
+        margin: 0 auto;    
+        width: 1000px;
+        height: 400px;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:link, a:visited, a:hover, a:focus, a:active {
+        text-decoration: none;
+    }
+
+    dl, ul, ol, menu, li {
+        list-style: none;
+    }
+
+    img, label {
+        vertical-align: middle;
+    }
+
+    fieldset, img {
+        border: 0 none;
+    }
+
+    #wrap {
+        width: 980px;
+        height: 380px;
+        margin: 0 auto;
+        padding: 0px 20px 27px 20px;
+    }
+
+    .title{      
+        width: 600px;
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .title .tag{
+        padding-bottom: 0;
+    }
+
+    .title .tag .name {
+        padding: 5px 0 0 30px;
+    }
+ 
+    .title .tag > span{
+        position: relative;
+        display: inline-block;
+        min-height: 28px;
+        font-size: 20px;
+        color: #666 ;
+    }
+
+    .title .tag > span a{
+        color: #666;
+    }
+
+    .title .tag > span a{
+        color: #666;
+    }
+   
+    .title .tag .name .icon {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 26px;
+        height: 24px;
+        background: url(./img/my.png) 0 0 no-repeat;
+        background-size: 26px auto;
+        text-indent: -9999px;
+    }
+   
+    .title span.icon{
+        float: left;
+    }
+ 
+    .title h2 {
+        overflow: hidden;
+        font-weight: 800;
+        color: #333;
+        font-size: 36px;
+        letter-spacing: -1px;    
+    }
+
+    .tag + h2 {
+        margin-top: -5px;
+    }
+
+    .title .apply {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: inline-block;
+        padding: 5px 15px;
+        border: 0;
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        background: #13294b;
+        box-sizing: border-box;
+        }
+   
+    .viewClick {
+        width: 100%;
+        position: relative;       
+        margin-top: 24px;
+    }
+
+    .leftBox {
+        float: left;
+        width: 600px;
+    }
+
+    .smallBox {
+        position: relative;
+        width: 600px;
+        padding: 15px 0 13px;
+        font-weight: 700;
+        border-top: 1px solid #999;
+    }
+
+    .smallBox strong {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .smallBox strong span {
+        padding: 0 2px;
+        color: #0a97cd;
+    }
+
+    .board {
+        float: left;
+        width: 600px;
+        float: none !important;
+    }
+
+    .page {
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .rightBox {
+        float: right;
+        width: 300px;
+    }
+
+    .myPage {
+        width: 100%;
+        padding: 10px 20px 30px 0px;
+        background: #f7f7f7;
+    }
+
+    .myPage > ul > li {
+        width: 100%;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .myPage > ul > li a {
+        display: block;
+        padding-left: 20px;
+        color: #666;
+    }
+
+    .myPage > ul > li a:hover {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+    .myPage ul li.on a {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // 더보기 버튼 클릭 시 이벤트 핸들러
+        $('.view').click(function(){
+            // 클릭한 더보기 버튼 다음에 오는 .subMenu를 보이도록 설정
+            $(this).next('.subMenu').toggle();
+        });
+    });
+</script>   
+
+
+<body>
+   <section>
+        <div id="wrap">
+            <div class="title">
+                <div class="tag">
+                    <span class="name">
+                        <a href="">
+                            <span class="icon">My</span>
+                            마이페이지
+                        </a>
+                    </span>
+                </div>
+                <h2>Q&A</h2>
+                <a href="javascript:qnaWrite();" class="apply">질문등록</a>
+            </div>
+            <div class="viewClick">
+                <div class="leftBox">
+                    <div class="smallBox">
+                        <strong>
+                            총
+                            <span>0</span>
+                            건
+                        </strong>
+                    </div>
+                    <ul class="board"></ul>
+                    <div class="page"></div>
+                </div>
+                <div class="rightBox">
+                    <div class="myPage">
+                        <ul>
+                            <li>
+                                <a href="">즐겨찾기</a>
+                            </li>
+                            <li>
+                                <a href="">코스</a>
+                            </li>
+                            <li>
+                               <a href="">댓글</a> 
+                            </li>
+                            <li class="on">
+                                <a href="javascript:" id="qna">Q&A (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>        
+   </section>
+</body>
+</html>

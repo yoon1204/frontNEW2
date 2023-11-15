@@ -4,115 +4,873 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-
-        /* 핫플콕콕, AI콕콕 플래너, AI콕콕 배너 전체*/
-        .kockoc_box {
-            width: 100%;        
-            margin: 40px auto 0;   
-        }
-
-        /* 핫플콕콕, AI콕콕 플래너, AI콕콕 개별 박스 */
-        .box {       
-            position: relative;
-        }
-
-        .kockoc_box .box {
-            width: 300px;
-            height: 174px;
-            border-radius: 5px;
-            color: #fff;
-            padding: 30px;     
-            box-sizing: border-box;    
-            font: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;   
-        }
-
-        .kockoc_box strong {
-            display: block;
-            margin: 0 0 8px;
-            font-weight: 800;
-            font-size: 20px;
-            letter-spacing: -0.8px;
-            line-height: 23px;
-             
-        }
-
-        .kockoc_box p {
-            font-size: 16px;
-            line-height: 20px;
-            letter-spacing: -0.5px;
-            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
-        }
-
-        .kockoc_box a {
-            display: inline-block;
-            position: absolute;
-            left: 30px;
-            bottom: 30px;
-            font-weight: 300;
-            font-size: 15px;
-            line-height: 17px;
-            color: #fff;
-            font-family: NotoSansKR,NotoSansJP,"돋움",Dotum,AppleGothic,Sans-serif;
-        }
-
-        /* 박스 가로 정렬 */
-        .kockoc_box .blue_box {
-            display: flex; 
-        }
-
-        .kockoc_box .box.content1 {            
-            background: #4094f2;
-        }
-
-        .kockoc_box .box.content2 {
-            background: #567ff2;
-        }
-
-        .kockoc_box .box.content3 {
-            background: #5558e3;
-        }
-
-        /* 바로가기 */
-        .kockoc_box a {           
-            font-weight: 300;
-            font-size: 15px;          
-            color: #fff;
-        }
-
-        .kockoc_box a:after {
-            display: block;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.6);
-            margin: 2px 0 0;
-        }
-    </style>
 </head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
 
-    <div class="kockoc_box">  
-			<ul class="blue_box">
-				<li class="box content1 box-active" style="margin-right: 20px;">
-					<strong>핫플콕콕</strong>
-					<p>요즘 인기있는 여행지는 다 모였네!<br>
-						지역별 핫플을 알려드려요!
-					</p>
-					<a href="https://korean.visitkorea.or.kr/main/cr_main.do?type=place">바로가기</a>
-				</li>
-				<li class="box content2 box-next" style="margin-right: 20px;">
-					<strong>AI콕콕 플래너</strong>
-					<p>어떤 지역을 여행하고 싶으신가요?<br>
-						맞춤형 여행 코스 대기 중!
-					</p>
-					<a href="https://korean.visitkorea.or.kr/main/cr_main.do?type=abc">바로가기</a>
-				</li>
-				<li class="box content3" style="margin-right: 20px;">
-					<strong>AI콕콕</strong>
-					<p>나의 여행 성향을 분석한 <br>
-						나만의 맞춤형 여행지 추천!
-					</p>
-					<a href="/https://korean.visitkorea.or.kr/main/cr_main.do?type=ai">바로가기</a>
-				</li>
-			</ul>
-    </div>           
+    .wrap {
+        position: relative;
+        border:1px solid red;
+    }
+
+    .swiper-container {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding:0;
+        z-index: 1;
+        border:1px solid aqua;
+    }
+
+    .swiper-wrapper {   
+        transform: translate3d(0,0,0);
+        position: relative;
+        width: 100%;     
+        height: 100%;  
+        z-index: 1;
+        display: flex;
+        transition-property: transform,-webkit-transform;      
+        box-sizing: content-box;
+        border:1px solid blueviolet;
+    }
+
+    .swiper-slide, .swiper-slide-ai, .swiper-slide-place, .swiper-slide-active, .swiper-slide-next, .swiper-slide-li{       
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;       
+        border:1px solid brown;
+    }
+
+    .travel {
+        height: 695px;
+        border-bottom: 1px solid #fff;
+        position: relative;
+        border:1px solid burlywood;
+    }
+
+    .travel .inr {
+        position: absolute;
+        width: 1200px;
+        left: 50%;
+        top: 0;
+        margin: 0 auto;
+        margin-left: -600px;
+        z-index: 100;
+        border:1px solid chartreuse;
+    }
+
+    .travel .txt {
+        padding: 285px 0 0;
+        color: #fff;
+        text-align: center;
+        border:1px solid chocolate;
+    }
+
+    .travel .txt strong {
+        display: block;
+        font-weight: 700;
+        font-size: 40px;
+        letter-spacing: -2.5px;
+        line-height: 46px;
+        border:1px solid coral;
+    }
+
+    .travel .txt p {
+        padding: 12px 0 45px;
+        font-size: 22px;
+        font-weight: 300;
+        letter-spacing: -1.2px;
+        line-height: 30px;
+        border:1px solid cornflowerblue;
+    }
+
+    .travel .wrap {
+        position: relative;
+        height: 695px;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border:1px solid crimson;
+    }
+
+    .travel .wallpaper {
+        padding-left: 30px;
+        position: absolute;
+        right: 32px;
+        bottom: 40px;
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: -0.8px;
+        border:1px solid darkblue;
+    }
+
+    .travel .wallpaper span {
+        display: block;
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 0;
+        border:1px solid darkgoldenrod;
+    }
+
+    .travel .wallpaper span:after {
+        content: '';
+        display: inline-block;
+        width: 17px;
+        height: 12px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_popularity_tab1.png) no-repeat;
+        margin-left: 8px;
+    }
+
+    #contents {
+        width: auto;
+        padding: 0 0 80px;
+        margin: 0 auto;
+        border:1px solid darkgreen;
+    }
+
+    .tab {
+        height: 75px;
+        background: #f0f2f7;
+        border:1px solid darkkhaki;
+    }
+
+    .tab ul {
+        height: 74px;
+        background: #fff;
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+        top: -40px;
+        border-radius: 50px;
+        border:1px solid darkolivegreen;
+    }
+
+    .tab ul li {
+        float: left;
+        width: 50%;
+        border:1px solid darkorange;
+    }
+
+    .tab ul li.on a {
+        font-weight: 700 !important;
+        color: #fff;
+        background: #567ff2;
+        box-shadow: 6px 9px 16px 0px rgba(96, 107, 243, 0.35);
+        border-radius: 50px;
+        border:1px solid darkorchid;
+    }
+
+    .tab ul li.on a:after {
+        background-position: 0 -13px;
+    }
+
+    .tab ul li:first-child.on a:before {
+        background-position: 0 -46px;
+    }
+
+    .tab ul li:last-child a:before {
+        background-position: 0 -92px;
+    }
+
+    .tab ul li a {
+        display: block;
+        font-size: 25px;
+        letter-spacing: -1.5px;
+        line-height: 74px;
+        color: #767676;
+        position: relative;
+        border:1px solid darkred;
+    }
+
+    .tab ul li a:before {
+        content: '';
+        display: inline-block;
+        margin: 0 11px 0 20px;
+        vertical-align: -13px;
+        width: 46px;
+        height: 46px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_popularity_tab.png) no-repeat;
+    }
+
+    .tab ul li a:after {
+        content: '';
+        display: inline-block;
+        width: 22px;
+        height: 13px;
+        position: absolute;
+        right: 31px;
+        top: 31px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_popularity_tab1.png) no-repeat;
+    }
+
+    .tab ul li a strong {
+        font-weight: 400;
+    }
+
+    .area .slide_area {
+        margin: 0 auto;
+        position: relative;
+        padding: 43px 0 0;
+        border:1px solid firebrick;
+    }
+
+    .area .slide_area .tit {
+        width: 1200px;
+        margin: 0 auto;
+        border:1px solid forestgreen;
+    }
+
+    .area h3 {
+        padding: 0 0 30px;
+        font-size: 28px;
+        font-weight: 700;
+        color: #333;
+        letter-spacing: -1.7px;
+        border:1px solid fuchsia;
+    }
+
+    .area h3 em {
+        font-weight: 700;
+        color: #567ff2;
+    }
+
+    .area .tit button {
+        display: none;
+    }
+
+    button{
+        border:0 none;
+        background-color: transparent;
+        cursor:pointer;
+    }
+
+    .area .slide_area .swiper-container {
+        position: static;
+        overflow: inherit;
+        height: 158px;
+        overflow: hidden;
+        border:1px solid gold;
+    }
+
+    .area .slide_area ul li {
+        width: 120px;
+    }
+
+    .area .slide_area a{
+        display: block;
+        text-align: center;
+    }
+
+    .area .slide_area a:hover em, .area .slide_area a.on em {
+        font-weight: 700;
+        color: #557ef1;
+        border:1px solid green;
+    }
+
+    .area .slide_area a em {
+        display: block;
+        font-size: 18px;
+        color: #777;
+        position: relative;
+        border:1px solid greenyellow;
+    }
+
+    .area .slide_area a em:before {
+        content: '';
+        display: block;
+        height: 120px;
+        margin: 0 0 9px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_area.gif) no-repeat;
+    }
+
+    .area .slide_area a.on em:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 120px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(86,127,242,.8) url(https://korean.visitkorea.or.kr/resources/images/curation/icon_area_check.png) 50% 49px no-repeat;
+        border-radius: 100%;
+    }
+
+    .area .slide_area a span {
+        display: inline-block;
+    }
+
+    .area .slide_area ul li {
+        width: 120px;
+    }
+
+    .area .slide_area a.incheon em:before {
+        background-position: 0 -120px;
+    }
+
+    .area .slide_area a.daejeon em:before {
+        background-position: 0 -240px;
+    }
+
+    .area .slide_area a.daegu em:before {
+        background-position: 0 -360px;
+    }
+
+    .area .slide_area a.gwangju em:before {
+        background-position: 0 -480px;
+    }
+
+    .area .slide_area a.busan em:before {
+        background-position: 0 -600px;
+    }
+
+    .area .slide_area a.ulsan em:before {
+        background-position: 0 -720px;
+    }
+
+    .area .slide_area a.sejong em:before {
+        background-position: 0 -1920px;
+    }
+
+    .area .slide_area a.gyeonggi em:before {
+        background-position: 0 -840px;
+    }
+
+    .area .slide_area a.gangwon em:before {
+        background-position: 0 -960px;
+    }
+
+    .area .slide_area a.chungbuk em:before {
+        background-position: 0 -1080px;
+    }
+
+    .area .slide_area a.chungnam em:before {
+        background-position: 0 -1200px;
+    }
+
+    .area .slide_area a.kyeongbuk em:before {
+        background-position: 0 -1320px;
+    }
+
+    .area .slide_area a.gyeongnam em:before {
+        background-position: 0 -1440px;
+    }
+
+    .area .slide_area a.jeonbuk em:before {
+        background-position: 0 -1560px;
+    }
+
+    .area .slide_area a.jeonnam em:before {
+        background-position: 0 -1680px;
+    }
+
+    .area .slide_area a.jeju em:before {
+        background-position: 0 -1800px;
+    }
+
+    .area .slide_area a em:before {
+        content: '';
+        display: block;
+        height: 120px;
+        margin: 0 0 9px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_area.gif) no-repeat;
+    }
+
+    .area .btn_wrap {
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        margin-left: -600px;
+    }
+
+    .area .button-prev {
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/btn_slide_prev04.png) no-repeat;
+        left: auto;
+        right: 38px;
+    }
+
+    .area .button-next {
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/btn_slide_next04.png) no-repeat;
+        right: 0;
+    }
+
+    .area .button-next, .area .button-prev {
+        width: 36px;
+        height: 36px;
+        text-indent: -9999px;
+        top: 44px;
+        margin-top: 0;
+    }
+
+    .button-next, .button-prev {
+        position: absolute;
+        z-index: 10;
+        cursor: pointer;
+    }
+
+    .swiper-container .swiper-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1000;
+        border:1px solid hotpink;
+    }
+
+    .area .area_list {
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        padding-top: 10px;
+    }
+
+    .area .area_list .sliding {
+        position: absolute;
+        left: 0;
+        top: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 16px;
+        color: #767676;
+        border:1px solid indianred;
+    }
+
+    .area .area_list .sliding .on {
+        font-weight: 700;
+        color: #000;
+    }
+
+    .area .area_list .sliding .on span {
+        display: inline-block;
+    }
+
+    .area .area_list .sliding .on span:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #000;
+    }
+
+    .area .area_list .sliding button + button:before {
+        content: '';
+        display: inline-block;
+        height: 16px;
+        width: 1px;
+        vertical-align: -2px;
+        background: #bfbfbf;
+        margin: 0 15px;
+    }
+
+    .area .area_list ul li {
+        float: left;
+        width: 277px;
+        margin: 60px 0 0 30px;
+        position: relative;
+        border:1px solid indigo;
+    }
+
+    .area .area_list .img {
+        display: block;
+        height: 195px;
+        border-radius: 10px;
+        text-indent: -9999px;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border:1px solid khaki;
+    }
+
+    .area .area_list strong {
+        display: block;
+        padding: 17px 55px 4px 0;
+    }
+
+    .area .area_list ul li a {
+        display: block;
+        position: relative;
+    }
+
+    .area .area_list .info span {
+        float: left;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        color: #333;
+    }
+
+    .area .area_list .info span + span:before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 15px;
+        margin: 0 12px;
+        background: #333;
+        vertical-align: -2px;
+    }
+
+    .area .area_list a.bookmark {
+        display: inline-block;
+        width: 20px;
+        position: absolute;
+        right: 35px;
+        top: 215px;
+        height: 18px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_good02.png) no-repeat;
+        text-indent: -9999px;
+    }
+
+    .area .area_list a.map {
+        display: inline-block;
+        width: 23px;
+        position: absolute;
+        right: 0;
+        top: 215px;
+        height: 17px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/icon_map1.png) no-repeat;
+        text-indent: -9999px;
+    }
+
+    .area .area_list ul:after {
+        content: '';
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+
+    .area .area_list .more {
+        padding: 28px 0 0;
+        text-align: center;
+    }
+
+    .area .area_list .more a {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .area .area_list .more a:after {
+        content: '';
+        display: inline-block;
+        width: 11px;
+        height: 8px;
+        margin-left: 5px;
+        vertical-align: 2px;
+        background: url(https://korean.visitkorea.or.kr/resources/images/curation/btn_more01.png) no-repeat;
+    }
+
+    .banner {
+        position: relative;
+        margin: 60px 0 88px;
+    }
+
+    .banner .swiper-container {
+        position: static;
+        border:1px solid lawngreen;
+    }
+
+    .banner ul li a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<body>
+   
+    <section>       
+        <div class="wrap" style="display:none;"> </div> //video_wrap
+        <a href="javascript:CurationExitLogSave(2);" class="wallpaper" style="display: none;"> //wallpaper_link
+            이 사진이 마음에 드시나요?
+            <span>월페이퍼 바로가기</span>
+        </a>
+        <div class="swiper-container" id="slide" style="height: auto;">//swiper-container swiper-tabs-content //tab_slide
+            <div class="swiper-wrapper" style="height: auto;">
+                <div class="swiper-slide-ai" style="min-height: 700px; display:none;"></div>//swiper-slide type_ai tab_slide_li
+                <div class="swiper-slide-place" style="min-height: 700px;">//swiper-slide type_place tab_slide_li
+                    <div class="travel" id="travelGnb">//travel_gnb ai_travel type1
+                        <div class="inr">
+                            <div class="txt" id="info">//info_txt
+                                <strong>핫플콕콕</strong>
+                                <p>
+                                    요즘 인기 있는 여행지는 다 모였네!<br>
+                                    TMAP, 관광 빅데이터, 대한민국 구석구석 사용자 활동 정보를 분석하여 제공하는<br>
+                                    지역별 여행지와 맛집 정보를 확인해 보세요
+                                </p>
+                            </div>
+                        </div>
+                        <div class="wrap" style="background-image: url(./img/핫플콕콕.png);"></div>//video_wrap
+                        <a href="javascript:CurationExitLogSave(2);" class="wallpaper">//wallpaper_link"
+                            이 사진이 마음에 드시나요?
+                            <span>월페이퍼 바로가기</span>
+                        </a>
+                    </div>
+                    <div id="contents">
+                        <div class="tab">//popularity_tab
+                            <div class="inr">
+                                <ul>
+                                    <li class="on">
+                                        <a href="javascript:changetype('main_1');">
+                                            대한민국구석구석 
+                                            <strong>인기여행지</strong>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:changetype('main_2');">
+                                            대한민국구석구석 
+                                            <strong>인기맛집</strong>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="area">//curation_area
+                            <h2 class="blind">대한민국구석구석 인기여행지</h2>
+                            <div class="slide_area">//area_slide
+                                <div class="tit">//tit_wrap
+                                    <h3>
+                                        <em>서울</em>
+                                        인기 여행지
+                                    </h3>
+                                    <button type="button" onclick="AreaOnOff();">
+                                        지역변경
+                                    </button> 
+                                    <div class="sort">
+                                        <button type="button" id="sort_button">//sort_view_button
+                                            인기순
+                                        </button>
+                                        <div class="layer">
+                                            <button type="button" class="on" onclick="changeSort(this,'POPULAR');">//changesorttype
+                                                인기순
+                                            </button>
+                                            <button type="button" onclick="changeSort(this,'DISTANCE');">//changesorttype
+                                                거리순
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layer_wrap">//slide_wrap
+                                    <div class="swiper-container">//swiper-container swiper-container-initialized swiper-container-horizontal
+                                        <ul class="swiper-wrapper">
+                                            <li class="swiper-slide-active" id="area1" style="margin-right: 15px;">//swiper-slide swiper-slide-active//parea1
+                                                <a href="javascript:;" class="seoul on" title="선택됨">
+                                                    <em>
+                                                        <span>서울</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide-next" id="area2" style="margin-right: 15px;">//swiper-slide swiper-slide-next//parea2
+                                                <a href="javascript:;" class="incheon" onclick="saveArea(2)">//saveAreaClickLog
+                                                    <em>
+                                                        <span>인천</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area3" style="margin-right: 15px;">//parea3
+                                                <a href="javascript:;" class="daejeon" onclick="saveArea(3)">
+                                                    <em>
+                                                        <span>대전</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area4" style="margin-right: 15px;">//parea4
+                                                <a href="javascript:;" class="daegu" onclick="saveArea(4)">
+                                                    <em>
+                                                        <span>대구</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area5" style="margin-right: 15px;">//parea5
+                                                <a href="javascript:;" class="gwangju" onclick="saveArea(5)">
+                                                    <em>
+                                                        <span>광주</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area6" style="margin-right: 15px;">//parea6
+                                                <a href="javascript:;" class="busan" onclick="saveArea(6)">
+                                                    <em>
+                                                        <span>부산</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area7" style="margin-right: 15px;">//parea7
+                                                <a href="javascript:;" class="ulsan" onclick="saveArea(7)">
+                                                    <em>
+                                                        <span>울산</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area8" style="margin-right: 15px;">//parea8
+                                                <a href="javascript:;" class="sejong" onclick="saveArea(8)">
+                                                    <em>
+                                                        <span>세종</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area9" style="margin-right: 15px;">//parea31
+                                                <a href="javascript:;" class="gyeonggi">
+                                                    <em>
+                                                        <span>경기</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area10" style="margin-right: 15px;">//parea32
+                                                <a href="javascript:;" class="gangwon">
+                                                    <em>
+                                                        <span>강원</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area11" style="margin-right: 15px;">//parea33
+                                                <a href="javascript:;" class="chungbuk">
+                                                    <em>
+                                                        <span>충북</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area12" style="margin-right: 15px;">//parea34
+                                                <a href="javascript:;" class="chungnam">
+                                                    <em>
+                                                        <span>충남</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area13" style="margin-right: 15px;">//parea35
+                                                <a href="javascript:;" class="kyeongbuk">
+                                                    <em>
+                                                        <span>경북</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area14" style="margin-right: 15px;">//parea36
+                                                <a href="javascript:;" class="gyeongnam">
+                                                    <em>
+                                                        <span>경남</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area15" style="margin-right: 15px;">//parea37
+                                                <a href="javascript:;" class="jeonbuk">
+                                                    <em>
+                                                        <span>전북</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area16" style="margin-right: 15px;">//parea38
+                                                <a href="javascript:;" class="jeonnam">
+                                                    <em>
+                                                        <span>전남</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                            <li class="swiper-slide" id="area17" style="margin-right: 15px;">//parea39
+                                                <a href="javascript:;" class="jeju" onclick="saveArea(17)">
+                                                    <em>
+                                                        <span>제주</span>
+                                                    </em>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="btn_wrap">
+                                            <div class="button-prev" tabindex="-1" role="button" aria-label="Prev_slide" aria-disabled="true">이전</div>//swiper-button-prev swiper-button-disabled //Previous slide
+                                            <div class="button-next" tabindex="0" role="button" aria-label="Next_slide" aria-disabled="false">다음</div>//swiper-button-next //Next slide
+                                        </div>
+                                        <span class="swiper-area" aria-live="assertive" aria-atomic="true"></span>//swiper-notification
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area_list">
+                                <h4 class="blind">대한민국구석구석 인기 여행지 - 서울</h4>
+                                <div class="sliding">//sorting
+                                    <button type="button" class="on" onclick="changeSort(this,'POPULAR');" id="popularBtn">//changesorttype //populerBtn
+                                        <span>인기순</span>
+                                    </button>
+                                    <button type="button" onclick="changeSort(this,'DISTANCE');" id="distBtn">//changesorttype
+                                        <span>거리순</span>
+                                    </button>
+                                </div>
+                                <ul>
+                                    <li *onclick="___trace(this)" *="" data-content-order="1" data-curation-type="undefined" data-page="MAIN" data-cot-id="02f56ab2-5e53-470f-8ec3-95cf8fb88aa4" data-content-type="12">//___traceCurationConsume
+                                        <a href="javascript:detail('02f56ab2-5e53-470f-8ec3-95cf8fb88aa4','undefined','12');" class="img" style="background-image: url(./img/서울숲.bmp);">서울숲</a>//goDetail
+                                        <strong>
+                                            <a href="javascript:detail('02f56ab2-5e53-470f-8ec3-95cf8fb88aa4','undefined','12');">서울숲</a>
+                                        </strong>
+                                        <div class="info">
+                                            <span>서울 성동구</span>
+                                            <span class="km" style="display: inline;">10.6km</span>
+                                        </div>
+                                        <a href="javascript:;" class="bookmark" onclick="content('02f56ab2-5e53-470f-8ec3-95cf8fb88aa4',this);">좋아요</a>//setLikeContent
+                                        <a href="javascript:golocation('02f56ab2-5e53-470f-8ec3-95cf8fb88aa4','37.5430553337','127.0417770333');" class="map">여행지도</a>
+                                    </li>
+                                    <li *onclick="___trace(this)" *="" data-content-order="2" data-curation-type="undefined" data-page="MAIN" data-cot-id="1a007b60-c892-46c3-94dc-c7051ac9fa4f" data-content-type="12">//___traceCurationConsume
+                                        <a href="javascript:detail('1a007b60-c892-46c3-94dc-c7051ac9fa4f','undefined','12');" class="img" style="background-image: url(./img/길상사.jpg);">길상사(서울)</a>
+                                        <strong>
+                                            <a href="javascript:detail('1a007b60-c892-46c3-94dc-c7051ac9fa4f','undefined','12');">길상사(서울)</a>
+                                        </strong>
+                                        <div class="info">
+                                            <span>서울 성북구</span>
+                                            <span class="km" style="display: inline;">8.4km</span>
+                                        </div>
+                                        <a href="javascript:;" class="bookmark" onclick="content('1a007b60-c892-46c3-94dc-c7051ac9fa4f',this);">좋아요</a>//setLikeContent
+                                        <a href="javascript:golocation('1a007b60-c892-46c3-94dc-c7051ac9fa4f','37.5990951960','126.9946241836');" class="map">여행지도</a>
+                                    </li>
+                                    <li *onclick="___trace(this)" *="" data-content-order="3" data-curation-type="undefined" data-page="MAIN" data-cot-id="3c98e24b-9fb9-4ecf-b8a2-f26a5890748f" data-content-type="12">
+                                        <a href="javascript:detail('3c98e24b-9fb9-4ecf-b8a2-f26a5890748f','undefined','12');" class="img" style="background-image: url(./img/낙산공원.jpg);">낙산공원</a>
+                                        <strong>
+                                            <a href="javascript:detail('3c98e24b-9fb9-4ecf-b8a2-f26a5890748f','undefined','12');">낙산공원</a>
+                                        </strong>
+                                        <div class="info">
+                                            <span>서울 종로구</span>
+                                            <span class="km" style="display: inline;">8.2km</span>
+                                        </div>
+                                        <a href="javascript:;" class="bookmark" onclick="content('3c98e24b-9fb9-4ecf-b8a2-f26a5890748f',this);">좋아요</a>
+                                        <a href="javascript:golocation('3c98e24b-9fb9-4ecf-b8a2-f26a5890748f','37.5805725621','127.0065125148');" class="map">여행지도</a>
+                                    </li>
+                                    <li *onclick="___trace(this)" *="" data-content-order="4" data-curation-type="undefined" data-page="MAIN" data-cot-id="443caffd-74a6-4713-ba02-4b5520ef7e62" data-content-type="12">
+                                        <a href="javascript:detail('443caffd-74a6-4713-ba02-4b5520ef7e62','undefined','12');" class="img" style="background-image: url(./img/경복궁.jpg);">경복궁</a>
+                                        <strong>
+                                            <a href="javascript:detail('443caffd-74a6-4713-ba02-4b5520ef7e62','undefined','12');">경복궁</a>
+                                        </strong>
+                                        <div class="info">
+                                            <span>서울 종로구</span>
+                                            <span class="km" style="display: inline;">5.8km</span>
+                                        </div>
+                                        <a href="javascript:;" class="bookmark" onclick="content('443caffd-74a6-4713-ba02-4b5520ef7e62',this);">좋아요</a>
+                                        <a href="javascript:golocation('443caffd-74a6-4713-ba02-4b5520ef7e62','37.5788222356','126.9769930325');" class="map">여행지도</a>
+                                    </li>                                    
+                                </ul>
+                                <div class="more" style="display: block;">//btn_more
+                                    <a href="javascript:moredata();">더보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner">//btm_auto_banner
+                            <div class="inr">
+                                <div class="swiper-container">
+                                    <ul class="swiper-wrapper">
+                                        <li class="swiper-slide">
+                                            <a href="javascript:banner('https://korean.visitkorea.or.kr/trss/applyintro.do','OUT');" style="background-color:#f3f2f8" title="새창 열림">//goBanner
+                                                <img src="./img/가볼래-터.png" class="pc" alt="매월,핫플레이스를 당신의 눈앞에 배송! 가볼래-터 구독하기">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide-li" style="min-height: 700px; display: none;"></div> //swiper-slide type_abc tab_slide_li
+            </div>
+        </div>
+    </section>
 </body>
 </html>

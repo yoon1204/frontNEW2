@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+
+    div {
+        box-sizing: border-box;
+    }
+
+    body{       
+        color: #666;
+    }
+
+    section{
+        margin: 0 auto;    
+        width: 1000px;
+        height: 400px;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:link, a:visited, a:hover, a:focus, a:active {
+        text-decoration: none;
+    }
+
+    body, input, textarea, button, select, table {
+        color: #666;
+        -webkit-text-size-adjust: none;
+    }
+
+    dl, ul, ol, menu, li {
+        list-style: none;
+    }
+
+    button {
+        border: 0 none;
+        background-color: transparent;
+        cursor: pointer;
+        outline: 0 none; 
+    }
+
+
+    #wrap {
+        width: 980px;
+        height: 380px;
+        margin: 0 auto;
+        padding: 0px 20px 27px 20px;
+    }
+
+    .title{    
+        width:600px;  
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .title .tag{
+        padding-bottom: 0;
+    }
+
+    .title .tag .name {
+        padding: 5px 0 0 30px;
+    }
+
+    .title .tag > span{
+        position: relative;
+        display: inline-block;
+        min-height: 28px;
+        font-size: 20px;
+        color: #666 ;
+    }
+
+    .title .tag > span a{
+        color: #666;
+    }
+
+    .title .tag .name .icon {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 26px;
+        height: 24px;
+        background: url(./img/my.png) 0 0 no-repeat;
+        background-size: 26px auto;
+        text-indent: -9999px;
+    }
+
+    .title span.icon {
+        float: left;
+    }
+    
+    .title h2 {
+        overflow: hidden;
+        font-weight: 800;
+        color: #333;
+        font-size: 36px;
+        letter-spacing: -1px;    
+    }
+
+    .tag + h2 {
+        margin-top: -5px;
+    }
+
+    .title .makeCos {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        display: inline-block;
+        padding: 5px 15px;
+        border: 0;
+        text-align: center;
+        font-size: 14px;  
+        color: #fff;
+        background: #13294b;    
+        box-sizing: border-box;      
+    }
+
+    .viewWrap {
+        width: 100%;
+        position: relative;       
+        margin-top: 24px;
+    }
+
+    .banner{
+        margin-bottom: 30px;
+    }
+
+    img, label {
+        vertical-align: middle;
+    }
+
+    
+    fieldset, img {
+        border: 0 none;
+    }
+
+    .leftBox {
+        float: left;
+        width: 600px;
+    }
+
+    .total{
+        position: relative;
+        width: 600px;
+        padding: 15px 0 13px;
+        font-weight: 700;
+        border-top: 1px solid #999;
+    }
+
+    .total strong {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .total strong span {
+        padding: 0 2px;
+        color: #0a97cd;
+    }
+
+    .listType{
+        float: left;
+        width: 600px;
+        position: relative;
+    }
+
+    .listType > li.nor {
+        border-top: 1px solid #e6e6e6;
+    }
+
+    .listType > li {
+        position: relative;
+        padding: 20px 0 65px !important;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .listType > li .photo {
+        float: left;
+        width: 140px;
+        height: 94px;
+        position: relative;
+    }
+
+    .listType > li .photo a {
+        display: block;
+    }
+
+    .listType > li .photo .area {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+        background-color: rgba(0,0,0,0.6);  
+        line-height: 1.5; 
+        font-size: 18px;
+    }
+
+    .listType > li .photo .area span {
+        display: inline-block;
+        font-size: 20px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .listType > li .photo img {
+        width: 140px;
+        height: 94px;
+    }
+
+    .listType > li .txt {
+        padding-left: 160px !important;
+        padding-right: 20px;
+    }
+
+    .listType > li .txt .tripTitle {
+        margin-top: -5px;
+        padding-bottom: 5px;
+    }
+
+    .listType > li .txt .tripTitle a {
+        overflow: hidden;
+        display: inline-block;
+        width: 100%;
+        font-weight: bold;
+        font-size: 20px;
+        color: #000;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .listType > li .txt p {
+        font-size: 14px;
+    }
+
+    .listType > li .view {
+        overflow: hidden;
+        position: absolute;
+        top: 24px;
+        right: 0;
+        z-index: 90;
+        width: 14px;
+        height: 16px;
+        background: url(./img/마이페이지점세개버튼.png) 0 0 no-repeat;
+        text-indent: -9999px;
+        border: none;
+        outline: none;
+    }
+
+   
+    .listType > li .view + .subMenu {
+        display: block;
+    }
+
+    .subMenu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        z-index: 110;
+        width: 170px;
+        border: 1px solid #767676;
+        padding: 0;
+        background: #fff;
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .subMenu > ul:first-child {
+        background: none;
+    }
+
+    .subMenu > ul {
+        padding: 10px 0;
+        background: url(./img/메뉴팝업흰선.png) 50% 0 no-repeat;
+    }
+
+    .subMenu > ul > li {
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .subMenu > ul > li.share > a {
+        height: 21px;
+        background: url(./img/공유하기버튼.png) no-repeat;
+    }
+
+    .subMenu > ul > li > a {
+        display: block;
+        height: 20px;
+        margin-left: 20px;
+        padding: 0 20px 0 28px;
+        background: url(./img/팝업아이콘들.png) 0 0 no-repeat;
+        letter-spacing: -1.1px;
+    }
+
+    .subMenu > ul > li {
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .subMenu > ul > li.edit > a {
+        background-position: 0 -523px;
+    }
+
+    .subMenu > ul > li.delete > a {
+        background-position: 0 -400px;
+    }
+
+    .page {
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .page a.on {
+        border: 1px solid #13294b;
+        background-color: #13294b;
+        color: #fff;
+        margin-top: 30px;
+    }
+
+    .page a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .rightBox {
+        float: right;
+        width: 300px;
+    }
+
+    .myPage {
+        width: 100%;
+        padding: 10px 20px 30px 0px;
+        background: #f7f7f7;
+    }
+
+    .myPage > ul > li {
+        width: 100%;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .myPage > ul > li a {
+        display: block;
+        padding-left: 20px;
+        color: #666;
+    }
+
+    .myPage ul li.cos a {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+    .myPage > ul > li a:hover {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+</style>
+
+<script>
+// JavaScript 코드 수정
+document.addEventListener("DOMContentLoaded", function() {
+    var viewButtons = document.querySelectorAll('.view');
+
+    // 각 view 버튼에 대한 클릭 이벤트를 추가
+    for (var i = 0; i < viewButtons.length; i++) {
+        viewButtons[i].addEventListener('click', function() {
+            // 현재 클릭한 버튼의 다음 형제 요소인 subMenu를 토글
+            var subMenu = this.nextElementSibling;
+            toggleSubMenu(subMenu);
+        });
+    }
+
+    // subMenu를 토글하는 함수
+    function toggleSubMenu(subMenu) {
+        if (subMenu.style.display === 'block') {
+            subMenu.style.display = 'none';
+        } else {
+            subMenu.style.display = 'block';
+        }
+    }
+
+    // 초기에 subMenu를 숨기는 스크립트 추가
+    var subMenus = document.querySelectorAll('.subMenu');
+    for (var j = 0; j < subMenus.length; j++) {
+        subMenus[j].style.display = 'none';
+    }
+});
+</script>
+
+<body>
+    <section>
+        <div id="wrap">
+            <div class="title"> 
+                <div class="tag">
+                    <span class="name"> 
+                        <a href="">
+                            <span class="icon">My</span>마이페이지 
+                        </a>
+                    </span>
+                </div>
+                <h2>코스</h2>
+                <button type="button" class="makeCos" onclick="showGuide()">코스만들기</button>
+            </div>
+            <div class="viewWrap">
+                <div class="banner">
+                    <a href="">
+                        <img src="./img/여행코스배너.gif" class="pc" alt="여러분이 직접 여행코스를 만들어주세요!">
+                    </a>
+                </div>
+                <div class="leftBox">
+                    <div class="total">
+                        <strong>
+                            총
+                            <span>1</span>
+                            건
+                        </strong>
+                    </div>    
+                    <ul class="listType">
+                        <li class="nor">
+                            <div class="photo">
+                                <a href="">
+                                    <span class="area">
+                                        <span>코스 총거리 13.7km</span>
+                                    </span>
+                                    <img src="./img/마포구.jpg" alt="마포">
+                                </a>
+                            </div>
+                            <div class="txt">
+                                <div class="tripTitle">
+                                    <a href="">마포</a>
+                                </div>
+                                <p>서울 마포구</p>
+                            </div>
+                            <button type="button" title="열기" class="view">더보기</button>
+                            <div class="subMenu" tabindex="0">
+                                <ul>
+                                    <li class="share" id="btnShare">
+                                        <a href="javascript:" onclick="shareInfo();">공유하기</a>
+                                    </li>
+                                    <li class="edit">
+                                        <a href="javascript:" onclick="modify();">내용편집</a>
+                                    </li>
+                                    <li class="delete" id="">
+                                        <a href="javascript:">삭제</a>
+                                    </li>
+                                </ul>
+                            </div> 
+                        </li>
+                    </ul>
+                    <div class="page">
+                        <a class="on" title="선택됨" href="javascript:" id="1">1</a>
+                    </div>
+                </div> 
+                <div class="rightBox">
+                    <div class="myPage">
+                        <ul>
+                            <li>
+                                <a href="">즐겨찾기</a>
+                            </li>
+                            <li class="cos">
+                                <a href="javascript:">코스</a>
+                            </li>
+                            <li>
+                                <a href="">댓글</a>
+                            </li>
+                            <li>
+                                <a href="" id="qna">Q&A (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+</body>
+</html>
+

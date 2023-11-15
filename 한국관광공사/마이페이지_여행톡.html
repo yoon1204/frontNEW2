@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+
+    div {
+        box-sizing: border-box;  
+    }
+
+    body{       
+        color: #666;
+    }
+
+    section{
+        margin: 0 auto;    
+        width: 1000px;
+        height: 400px;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:link, a:visited, a:hover, a:focus, a:active {
+        text-decoration: none;
+    }
+
+    dl, ul, ol, menu, li {
+        list-style: none;
+    }
+
+    img, label {
+        vertical-align: middle;
+    }
+
+    fieldset, img {
+        border: 0 none;
+    }
+
+    #wrap {
+        width: 980px;
+        height: 380px;
+        margin: 0 auto;
+        padding: 0px 20px 27px 20px;
+    }
+
+    .title{      
+        width: 600px;
+        position: relative;
+        padding-right: 20px;
+    }
+
+    .title .tag{
+        padding-bottom: 0;
+    }
+
+    .title .tag .name {
+        padding: 5px 0 0 30px;
+    }
+ 
+    .title .tag > span{
+        position: relative;
+        display: inline-block;
+        min-height: 28px;
+        font-size: 20px;
+        color: #666 ;
+    }
+
+    .title .tag > span a{
+        color: #666;
+    }
+
+    .title .tag .name .icon {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 26px;
+        height: 24px;
+        background: url(./img/my.png) 0 0 no-repeat;
+        background-size: 26px auto;
+        text-indent: -9999px;
+    }
+    
+    .title span.icon{
+        float: left;
+    }
+
+    .title h2 {
+        overflow: hidden;
+        font-weight: 800;
+        color: #333;
+        font-size: 36px;
+        letter-spacing: -1px;    
+    }
+
+    .tag + h2 {
+        margin-top: -5px;
+    }
+   
+    .viewClick {
+        width: 100%;
+        position: relative;       
+        margin-top: 24px;
+    }
+
+    .leftBox {
+        float: left;
+        width: 600px;
+    }
+
+    .smallBox {
+        position: relative;
+        width: 600px;
+        padding: 15px 0 13px;
+        font-weight: 700;
+        border-top: 1px solid #999;
+    }
+
+    .smallBox strong {
+        font-weight: 700;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .smallBox strong span {
+        padding: 0 2px;
+        color: #0a97cd;
+    }
+
+    .smallBox .fav_btn{
+        top: 13px;
+        position: absolute;
+        right: 0;
+        color: #767676;
+        background: none; 
+    }
+
+    .smallBox .fav_btn button {
+        overflow: hidden;
+        display: inline-block;
+        padding: 0 15px;
+        background: url(./img/댓글답글사이흰선.png) 0 5px no-repeat;
+        font-size: 16px;
+        line-height: 22px;
+        border: none; 
+        background-color: transparent;
+        cursor: pointer;
+        }
+
+    .smallBox .fav_btn button.comment{
+        color: #000;
+        font-weight: 700;
+    }
+
+    .smallBox .fav_btn > button:first-child {
+        background: none;
+    }
+
+    .smallBox .fav_btn > button:last-child {
+        padding-right: 0;
+    }
+
+    .replyWrap{
+        width: 600px;
+        border-top: 1px solid #e6e6e6;
+    }
+    
+    .replyWrap .favComment{
+        min-height: auto;
+    }
+
+    .favComment{
+        position: relative;
+    }
+
+    .replyWrap .favComment .favReply{
+        width: 100%;
+    }
+           
+    .favComment .favReply > ul > li {
+        position: relative;
+        width: 100%;
+        padding: 20px 10px;
+        border-bottom: 1px solid #e6e6e6;
+        box-sizing: border-box;
+    }
+
+    .favComment .favReply > ul > li .contentWrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .favComment .favReply > ul > li .contentWrapper .profile {
+        margin-right: 20px; 
+    }
+
+            
+    .favComment .favReply .profile {
+        position: relative;
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+
+    .favComment .favReply .profile .photo {
+        width: 50px;
+        height: 50px;
+        background: url(./img/여행톡프로필아이콘.png) 0 0 no-repeat;
+        border-radius: 100%;
+        text-indent: -9999px;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .favComment .favReply .profile .photo img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+
+    .favComment .favReply .profile .icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 101;
+        width: 16px;
+        height: 16px;
+    }
+
+    .favComment .favReply .profile .icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .replyWrap .favComment .favReply .txtReply{
+        width: 525px;
+    }
+                       
+    .favComment .favReply .txtReply {
+        float: left;
+        padding-left: 20px;
+    }
+
+    .replyWrap .favReply .txtReply strong {
+        display: block;
+        padding: 0 0 16px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+        line-height: 23px;
+    }
+
+    .favComment .favReply .txtReply p {
+        padding-bottom: 5px;
+        font-size: 16px;
+        color: #333;
+        word-break: break-all;
+        padding-right: 23px;
+    }
+
+    .replyWrap .favComment .favReply .txtReply .date {
+        padding-top: 5px;
+        position: relative;
+    }
+
+    .favComment .favReply .txtReply .date {
+        color: #333;
+        font-size: 14px;
+    }
+
+    .favComment .favReply .txtReply .nickName {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 20px;
+        padding-right: 10px;
+        margin-right: 7px;
+        background: url(./img/댓글답글사이흰선.png) 100% 6px no-repeat;
+        color: #333;
+    }
+
+    em{
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .favComment .favReply .txtReply span {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 20px;
+        color: #707070;
+    }
+
+    .favComment .favReply .view {
+        overflow: hidden;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 90;
+        width: 14px;
+        height: 16px;
+        background: url(./img/마이페이지점세개버튼.png) 0 0 no-repeat;
+        text-indent: -9999px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .subMenu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        z-index: 110;
+        width: 170px;
+        border: 1px solid #767676;
+        padding: 0;
+        background: #fff;
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .subMenu > ul:first-child {
+        background: none;
+    }
+
+    .subMenu > ul {
+        padding: 10px 0;
+        background: url(./img/메뉴팝업흰선.png) 50% 0 no-repeat;
+    }
+
+    .subMenu > ul > li {
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .subMenu > ul > li.delete > a {
+        background-position: 0 -400px;
+    }
+
+    .subMenu > ul > li > a {
+        display: block;
+        height: 20px;
+        margin-left: 20px;
+        padding: 0 20px 0 28px;
+        background: url(./img/팝업아이콘들.png) 0 0 no-repeat;
+        letter-spacing: -1.1px;
+    }
+
+    .page {
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .page a.on {
+        border: 1px solid #13294b;
+        background-color: #13294b;
+        color: #fff;
+    }
+
+    .page a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .rightBox {
+        float: right;
+        width: 300px;
+    }
+
+    .myPage {
+        width: 100%;
+        padding: 10px 20px 30px 0px;
+        background: #f7f7f7;
+    }
+
+    .myPage > ul > li {
+        width: 100%;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .myPage > ul > li a {
+        display: block;
+        padding-left: 20px;
+        color: #666;
+    }
+
+    .myPage > ul > li a:hover {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+
+    .myPage ul li.right a {
+        background: url(./img/마이페이지빨간줄.png) 0 0 no-repeat;
+        background-size: 4px 100%;
+        color: #333;
+    }
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    // 더보기 버튼 클릭 시 이벤트 핸들러
+    $('.view').click(function(){
+        // 클릭한 더보기 버튼 다음에 오는 .subMenu를 보이도록 설정
+        $(this).next('.subMenu').toggle();
+    });
+
+
+// 댓글과 답글 전환 기능을 추가한 JavaScript 코드
+document.addEventListener("DOMContentLoaded", function () {
+            var isComment = true;
+
+            $('#comment').click(function () {
+                if (!isComment) {
+                    $('.favReply').hide();
+                    $('.favComment').show();
+                    isComment = true;
+                }
+            });
+
+            $('#reply').click(function () {
+                if (isComment) {
+                    $('.favComment').hide();
+                    $('.favReply').show();
+                    isComment = false;
+                }
+            });
+        });
+
+        // 답글 추가 기능을 추가한 JavaScript 코드
+        function addReply() {
+
+            // 지우기
+
+            var newReply = document.createElement("li");
+            
+
+            newReply.innerHTML = `
+                <div class="contentWrapper">
+                    <div class="profile">
+                        <div class="photo">
+                            <img src="./img/룰루랄라.png" alt="프로필 사진">
+                        </div>	
+                        <span class="icon">
+                            <img src="./img/네이버아이콘.png" alt="네이버">
+                        </span>
+                    </div>
+                    <div class="txtReply"> 
+                        <strong>
+                            <a href="">만촌인라인롤러스케이트장</a>
+                        </strong>	
+                        <p>
+                            <a href="">너무 재밌어요~</a>
+                        </p>	
+                        <div class="date">		
+                            <em class="nickName">민호</em>
+                            <span>2023. 10. 26.</span>	
+                        </div>
+                    </div>
+                </div>
+                <button type="button" title="내용 더보기" class="view">더보기</button>
+                <div class="subMenu">
+                    <ul>		
+                        <li class="delete" id="">
+                            <a href="javascript:">삭제</a>
+                        </li>	
+                    </ul>
+                </div>
+            </li>          
+            `;
+
+            var replyList = document.querySelector(".favReply > ul");
+
+
+            replyList.innerHTML="";  //  영역의 내용 지우기
+            replyList.appendChild(newReply);
+        }
+
+
+        //
+        document.getElementById("reply").addEventListener("click", function () {
+            addReply();
+        });
+    });
+    </script>   
+
+
+<body>
+    <section>
+        <div id="wrap">
+            <div class="title"> 
+                <div class="tag">
+                    <span class="name"> 
+                        <a href="">
+                            <span class="icon">My</span>마이페이지 
+                        </a>
+                    </span>
+                </div>
+                <h2>여행톡</h2>
+            </div>
+            <div class="viewClick">
+                <div class="leftBox">
+                    <div class="smallBox">
+                        <strong>
+                            총
+                            <span>1</span>
+                            건
+                        </strong>
+                        <div class="fav_btn">
+                            <button type="button" id="comment" onclick="typeChange('reply');" class="on" title="선택됨">댓글</button>
+                            <button type="button" id="reply" onclick="typeChange('comment');" class="on" title="선택됨">답글</button>
+                        </div>
+                    </div>
+                    <div class="replyWrap">
+                        <div class="favComment">
+                            <div class="favReply">
+                                <ul>
+                                    <li>
+                                        <div class="contentWrapper">
+                                            <div class="profile">
+                                                <div class="photo">
+                                                    <img src="./img/룰루랄라.png" alt="프로필 사진">
+                                                </div>	
+                                                <span class="icon">
+                                                    <img src="./img/네이버아이콘.png" alt="네이버">
+                                                </span>
+                                            </div>
+                                            <div class="txtReply"> 
+                                                <strong>
+                                                    <a href="">대구앞산공원</a>
+                                                </strong>	
+                                                <p>
+                                                    <a href="">가볍게 산책 다니기 좋은 곳입니다.</a>
+                                                </p>	
+                                                <div class="date">		
+                                                    <em class="nickName">민호</em>
+                                                    <span>2023. 11. 7.</span>	
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" title="내용 더보기" class="view">더보기</button>
+                                        <div class="subMenu">
+                                            <ul>		
+                                                <li class="delete" id="" cotid="">
+                                                    <a href="javascript:">삭제</a>
+                                                </li>	
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <a class="on" title="선택됨" href="javascript:" id="1">1</a>
+                    </div>       
+                </div>
+                <div class="rightBox">
+                    <div class="myPage">
+                        <ul>
+                            <li>
+                                <a href="">즐겨찾기</a>
+                            </li>
+                            <li>
+                                <a href="">코스</a>
+                            </li>
+                            <li class="right">
+                                <a href="javascript:">댓글</a>
+                            </li>
+                            <li>
+                                <a href="" id="qna">Q&A (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+</body>
+</html>
