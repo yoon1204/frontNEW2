@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+       *{
+            margin:0;
+            padding:0;
+       }
+
+       button {
+            border: 0 none;
+            background-color: transparent;
+            cursor: pointer;          
+        }
+
+        /* 작은 파란 동그라미 */
+        .clustering.type1 {
+            width: 71px;
+            height: 71px;
+            line-height: 71px;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/bg_clustering1.png) no-repeat;
+        }
+
+        /* 큰 파란 동그라미 */
+        .clustering.type2 {
+            width: 89px;
+            height: 89px;
+            line-height: 89px;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/bg_clustering2.png) no-repeat;
+        }
+
+        /* 파란 동그라미 안에 흰색 글씨 */
+        .clustering {
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        /* 왼쪽 메뉴창 */
+        .map_cont_wrap {
+            position: absolute;
+            left: 0;
+            top: 89px;
+            height: calc(100% - 89px);
+            display: flex;
+            transition: .3s ease-in-out;
+            z-index: 10;           
+        }
+
+        /* 왼쪽 메뉴창 */
+        .pc_cont {
+            height: 100%;
+            background: #fff;
+            display: flex;
+            box-shadow: 5px 0px 30px 0px rgba(98, 99, 100, 0.3);          
+        }
+
+        /* 왼쪽 메뉴창 위쪽 아이콘 부분 */
+        .pc_depth1 {
+            height: 100%;
+            width: 405px;
+            background: #fff;            
+        }
+
+        /* 왼쪽 메뉴창 위쪽 구름 사진 */
+        .map_menu.cloud {
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/bg_weather_cloud.jpg) no-repeat;           
+        }
+
+        /* 왼쪽 메뉴창 위쪽 아이콘 부분 */
+        .map_menu .tab {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 0 0;          
+        }
+
+
+        /* 왼쪽 메뉴창 위쪽 아이콘 4개 */
+        .map_menu .tab li {
+            width: 20%;
+            text-align: center;
+            margin: 0 0 17px;
+            list-style: none;           
+        }
+
+        /* 왼쪽 메뉴창 위쪽 아이콘 4개 */
+        .map_menu .tab li.on a {           
+            text-decoration: none;
+            color: #000;          
+        }
+
+        /* 주변여행지 아이콘  */
+        .map_menu .tab li.on a:before {
+            width: 37px;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/icon_depth1_menu_on.png) no-repeat;
+        }
+
+        /* 음식점 아이콘 */
+        .map_menu .tab li a.icon2:before {
+            background-position: 0 -36px !important;
+        }
+
+        /* 카페 아이콘 */
+        .map_menu .tab li a.icon3:before {
+            background-position: 0 -72px !important;
+        }
+
+        /* 숙소 아이콘 */
+        .map_menu .tab li a.icon4:before {
+            background-position: 0 -108px !important;
+        }
+
+         /* 왼쪽 메뉴창 위쪽 아이콘 4개 */
+         .map_menu .tab li a {
+            display: block;
+            position: relative;
+            color: #767676;
+            font-size: 14px;
+            letter-spacing: -1.5px;          
+        }
+
+         /* 왼쪽 메뉴창 위쪽 아이콘 4개 */
+        .map_menu .tab li a:before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 6px;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/icon_depth1_menu.png) no-repeat;         
+        }
+
+        /* 왼쪽 메뉴창 밑부분 전체 */
+        .menu_cont {
+            height: calc(100% - 285px);
+            overflow-y: scroll;
+            border-top: 1px solid #e5e6e8;
+        }
+
+        /* 왼쪽 메뉴창 밑부분 하나 */
+        .list_type1 ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f4f3f3;
+            overflow: hidden;          
+        }
+
+        /* 왼쪽 메뉴창 밑부분 이미지 */
+        .list_type1 ul li .img {
+            position: relative;
+            float: left;
+            width: 90px;
+            height: 90px;
+            background-position: 50% 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+        }
+
+        /* 왼쪽 메뉴창 밑부분 타이틀 */
+        .list_type1 .info {
+            margin: 0 0 0 105px;
+            position: relative;         
+        }
+
+         /* 왼쪽 메뉴창 밑부분 타이틀 */
+        .list_type1 ul li .tit {
+            display: flex;          
+        }
+
+         /* 왼쪽 메뉴창 밑부분 타이틀 */
+        .list_type1 ul li .tit a {
+            display: inline-block;
+            font-size: 20px;
+            line-height: 23px;
+            font-weight: 700;
+            padding-right: 7px;
+            letter-spacing: -1px;
+            color: #333;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            text-decoration: none;          
+        }
+
+        /* 왼쪽 메뉴창 열기 닫기 */
+        .map_cont_wrap .btn_fold {
+            width: 59px;
+            height: 104px;
+            position: absolute;   
+            top: 50%;
+            right: -59px;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/btn_fold.png) no-repeat;
+            text-indent: -9999px;       
+        }
+
+
+        /* 버튼 스타일*/
+        .map_cont_wrap.close   {
+            left : -405px;
+        }
+
+
+
+        /* 오른쪽 상단 위치 버튼 */
+        .map_btn {
+            position: absolute;
+            right: 20px;
+            top: 130px;
+            width: 47px;
+            height: 160px;        
+        }
+
+        /* 오른쪽 상단 위치 버튼 */
+        .map_btn .location {
+            width: 47px;
+            height: 47px;
+            text-indent: -9999px;
+            background: url(https://korean.visitkorea.or.kr/resources/images/location/btn_location.png) no-repeat;
+            box-shadow: 1px 2px 13px 0px rgba(19, 22, 22, 0.33);
+            border-radius: 100%;          
+        }
+
+        
+       
+ </style>
+</head>
+<body>
+    <div class="section">
+      
+    </div>
+
+    
+    <div class="map_cont_wrap" style="">
+        <div class="pc_cont">
+            <!-- depth1 -->
+            <div class="pc_depth1">
+                <div class="map_menu cloud">               
+                    <ul class="tab">
+                        <li label="tour" class="on">
+                            <a href="javascript:;" onclick="CategoryChange(this,1);" class="icon1" title="선택됨">주변 여행지</a>
+                        </li>
+                        <li label="food" class="on">
+                            <a href="javascript:;" onclick="CategoryChange(this,2);" class="icon2" title="선택됨">음식점</a>
+                        </li>
+                        <li label="cafe" class="on">
+                            <a href="javascript:;" onclick="CategoryChange(this,3);" class="icon3" title="선택됨">카페</a>
+                        </li>
+                        <li label="hotel" class="on">
+                            <a href="javascript:;" onclick="CategoryChange(this,4);" class="icon4" title="선택됨">숙소</a>
+                        </li>	
+                    </ul>
+                </div>
+                <div class="menu_cont">
+                    <div class="list_type1">
+                        <ul id="conlistul">
+                            <li>
+                                <a href="javascript:;" onclick="openDetail('3b7c0d73-45de-4335-9f30-78c8e98cf8c0','');" style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&amp;id=b14217a1-0560-487b-9720-12f2a937c2da);" class="img"></a>
+                                <div class="info">
+                                    <div class="tit">
+                                        <a href="javascript:;" onclick="openDetail('3b7c0d73-45de-4335-9f30-78c8e98cf8c0','');">삼다코지</a>                                            
+                                    </div>                                       
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- //depth1 -->
+            <!-- depth2 -->	
+        </div>
+        <button class="btn_fold" type="button">접기</button>
+    </div>
+
+
+ 
+
+    <script> 
+        $('.map_cont_wrap .btn_fold').click(function(){
+
+         
+            var contW = $('.map_cont_wrap');
+            if(!contW.hasClass('close')){
+                $('.map_cont_wrap').addClass('close');
+                $(this).text('펼치기');
+    
+            }else{
+                $('.map_cont_wrap').removeClass('close');
+                $(this).text('접기');
+            }
+        });
+    
+  
+    </script>
+
+   
+</body>
+
+</html>
